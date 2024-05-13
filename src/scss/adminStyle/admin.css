@@ -1,0 +1,464 @@
+body {
+  display: flex;
+  margin: 0;
+}
+body .adminPage_left {
+  background-color: #720418;
+  width: 20%;
+  height: 500vh;
+  padding: 2%;
+}
+body .adminPage_left .leftLogoX {
+  display: flex;
+}
+body .adminPage_left .leftLogoX .logo-group {
+  width: 320px;
+  height: 150px;
+  margin-left: 10%;
+  margin-top: 28%;
+}
+body .adminPage_left .leftLogoX .x {
+  display: none;
+}
+body .adminPage_left .pages {
+  width: 400px;
+  margin-bottom: 10px;
+}
+body .adminPage_right {
+  background-color: #fffaf5;
+  width: 70%;
+}
+body .adminPage_right .logoHamburger {
+  display: flex;
+  justify-content: space-between;
+  display: none;
+}
+body .adminPage_right .nameAdmin {
+  margin-top: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+body .adminPage_right .nameAdmin img {
+  margin-right: 10px;
+}
+body .adminPage_right h2 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  font-size: 60px;
+  margin-top: 190px;
+  margin-left: 80px;
+  color: #333333;
+}
+body .adminPage_right .search {
+  padding-left: 80px;
+}
+body .adminPage_right .search h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  color: #333333;
+}
+body .adminPage_right .search .inpBtn {
+  display: flex;
+  align-items: center;
+}
+body .adminPage_right .search .inpBtn .sarechInp {
+  width: 500px;
+  height: 41px;
+  border: 3px solid #a09385;
+  border-radius: 34px;
+}
+body .adminPage_right .search .inpBtn .searchBtn {
+  border: 0;
+  background-color: #fffaf5;
+}
+body .adminPage_right .search .inpBtn .searchBtn img {
+  width: 70px;
+  height: 50px;
+}
+body .adminPage_right .bookForm {
+  width: 100%;
+  padding-left: 80px;
+  margin-top: 80px;
+}
+body .adminPage_right .bookForm h3 {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+}
+body .adminPage_right .bookForm label {
+  font-size: 16px;
+  margin-left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+body .adminPage_right .bookForm input {
+  width: 85%;
+  height: 40px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  border-radius: 10px;
+  margin-left: 20px;
+  border: 0;
+  box-shadow: 0px 4px 18px 0px rgba(158, 168, 189, 0.3098039216);
+  font-size: 16px;
+}
+body .adminPage_right .bookForm textarea {
+  width: 85%;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  border: 0;
+  box-shadow: 0px 4px 18px 0px rgba(158, 168, 189, 0.3098039216);
+  border-radius: 10px;
+  font-size: 16px;
+}
+body .adminPage_right .bookForm .addBtn {
+  margin-left: 20px;
+  width: 86%;
+  height: 40px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #ff8b00;
+  color: white;
+}
+body .adminPage_right .aboutStore {
+  width: 100%;
+  padding-left: 80px;
+  margin-top: 220px;
+  box-sizing: border-box;
+}
+body .adminPage_right .aboutStore h3 {
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333333;
+}
+body .adminPage_right .aboutStore label {
+  font-size: 16px;
+  margin-left: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+body .adminPage_right .aboutStore input {
+  width: 85%;
+  height: 40px;
+  margin-bottom: 30px;
+  margin-top: 10px;
+  border-radius: 10px;
+  margin-left: 20px;
+  border: 0;
+  box-shadow: 0px 4px 18px 0px rgba(158, 168, 189, 0.3098039216);
+  font-size: 16px;
+}
+body .adminPage_right .aboutStore textarea {
+  width: 85%;
+  margin-left: 20px;
+  margin-bottom: 30px;
+  border: 0;
+  box-shadow: 0px 4px 18px 0px rgba(158, 168, 189, 0.3098039216);
+  border-radius: 10px;
+  font-size: 16px;
+}
+body .adminPage_right .aboutStore .aboutAddBtn {
+  margin-left: 20px;
+  width: 86%;
+  height: 44px;
+  border-radius: 10px;
+  border: 0;
+  background-color: #ff8b00;
+  color: white;
+}
+body .adminPage_right .joinUs {
+  width: 100%;
+  padding-left: 80px;
+  margin-top: 200px;
+  box-sizing: border-box;
+}
+body .adminPage_right .joinUs h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}
+body .adminPage_right .joinUs table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 44%;
+}
+body .adminPage_right .joinUs table tr:nth-child(even) {
+  background-color: #e6e8ee;
+}
+body .adminPage_right .joinUs table td {
+  text-align: center;
+  padding: 8px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 400;
+}
+body .adminPage_right .joinUs table th {
+  background-color: #720418;
+  text-align: center;
+  padding: 8px;
+  color: white;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 400;
+}
+body .adminPage_right .books {
+  width: 100%;
+  padding-left: 80px;
+  margin-top: 200px;
+  box-sizing: border-box;
+}
+body .adminPage_right .books h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}
+body .adminPage_right .books table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 96%;
+}
+body .adminPage_right .books table tr:nth-child(even) {
+  background-color: #e6e8ee;
+}
+body .adminPage_right .books table td {
+  text-align: center;
+  padding: 8px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 400;
+}
+body .adminPage_right .books table th {
+  background-color: #720418;
+  text-align: center;
+  padding: 8px;
+  color: white;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 400;
+}
+body .adminPage_right .contactUs {
+  width: 100%;
+  padding-left: 80px;
+  margin-top: 350px;
+  box-sizing: border-box;
+}
+body .adminPage_right .contactUs h3 {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}
+body .adminPage_right .contactUs table {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 96%;
+}
+body .adminPage_right .contactUs table tr:nth-child(even) {
+  background-color: #e6e8ee;
+}
+body .adminPage_right .contactUs table td {
+  text-align: center;
+  padding: 8px;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 400;
+}
+body .adminPage_right .contactUs table th {
+  background-color: #720418;
+  text-align: center;
+  padding: 8px;
+  color: white;
+  height: 44px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@media only screen and (max-width: 431px) {
+  body {
+    margin: 0;
+  }
+  body .adminPage_left {
+    display: none;
+  }
+  body .adminPage_right {
+    width: 100%;
+  }
+  body .adminPage_right .logoHamburger {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  body .adminPage_right .logoHamburger img {
+    padding: 20px;
+  }
+  body .adminPage_right .nameAdmin {
+    display: none;
+  }
+  body .adminPage_right h2 {
+    font-weight: 600;
+    font-size: 40px;
+    margin-top: 60px;
+    margin-left: 20px;
+    color: #333333;
+  }
+  body .adminPage_right .search {
+    padding-left: 20px;
+  }
+  body .adminPage_right .search h3 {
+    font-size: 25px;
+  }
+  body .adminPage_right .search .inpBtn .sarechInp {
+    width: 100%;
+    height: 41px;
+  }
+  body .adminPage_right .bookForm {
+    width: 100%;
+    padding-left: 0px;
+    margin-top: 50px;
+  }
+  body .adminPage_right .bookForm h3 {
+    margin-left: 20px;
+  }
+  body .adminPage_right .bookForm label {
+    margin-left: 20px;
+  }
+  body .adminPage_right .bookForm input {
+    width: 88%;
+    height: 40px;
+    margin-bottom: 30px;
+    margin-top: 8px;
+    border-radius: 10px;
+    margin-left: 20px;
+  }
+  body .adminPage_right .bookForm textarea {
+    margin-left: 20px;
+    width: 88%;
+  }
+  body .adminPage_right .bookForm .addBtn {
+    margin-left: 20px;
+    width: 90%;
+  }
+  body .adminPage_right .aboutStore {
+    width: 100%;
+    padding-left: 20px;
+    margin-top: 100px;
+  }
+  body .adminPage_right .aboutStore h3 {
+    font-size: 25px;
+  }
+  body .adminPage_right .aboutStore label {
+    margin-left: 0px;
+  }
+  body .adminPage_right .aboutStore input {
+    margin-left: 0px;
+    width: 92%;
+  }
+  body .adminPage_right .aboutStore textarea {
+    margin-left: 0px;
+    width: 92%;
+  }
+  body .adminPage_right .aboutStore .aboutAddBtn {
+    margin-left: 0px;
+    width: 93%;
+  }
+  body .adminPage_right .joinUs {
+    width: 100%;
+    padding-left: 0px;
+    margin-top: 200px;
+    box-sizing: border-box;
+  }
+  body .adminPage_right .joinUs h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    margin-left: 20px;
+  }
+  body .adminPage_right .joinUs table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  body .adminPage_right .joinUs table tr:nth-child(even) {
+    background-color: #e6e8ee;
+  }
+  body .adminPage_right .joinUs table td {
+    text-align: center;
+    padding: 8px;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  body .adminPage_right .joinUs table th {
+    background-color: #720418;
+    text-align: center;
+    padding: 8px;
+    color: white;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  body .adminPage_right .books {
+    width: 100%;
+    padding-left: 0px;
+    margin-top: 200px;
+    box-sizing: border-box;
+  }
+  body .adminPage_right .books h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+  }
+  body .adminPage_right .books table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  body .adminPage_right .books table tr:nth-child(even) {
+    background-color: #e6e8ee;
+  }
+  body .adminPage_right .books table td {
+    text-align: center;
+    padding: 8px;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  body .adminPage_right .books table th {
+    background-color: #720418;
+    text-align: center;
+    padding: 8px;
+    color: white;
+    height: 44px;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  body .adminPage_right .contactUs {
+    width: 100%;
+    padding-left: 0;
+    margin-top: 200px;
+    box-sizing: border-box;
+  }
+  body .adminPage_right .contactUs h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+  }
+  body .adminPage_right .contactUs table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  body .adminPage_right .contactUs table tr:nth-child(even) {
+    background-color: #e6e8ee;
+  }
+  body .adminPage_right .contactUs table td {
+    text-align: center;
+    padding: 8px;
+    height: 44px;
+    font-size: 8px;
+    font-weight: 400;
+  }
+  body .adminPage_right .contactUs table th {
+    background-color: #720418;
+    text-align: center;
+    padding: 8px;
+    color: white;
+    height: 44px;
+    font-size: 8px;
+    font-weight: 400;
+  }
+}/*# sourceMappingURL=admin.css.map */

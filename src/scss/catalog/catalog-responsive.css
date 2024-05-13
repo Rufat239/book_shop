@@ -6,7 +6,7 @@
   }
   .header-list {
     background-color: #fff !important;
-    z-index: 99999 !important;
+    z-index: 99999;
     width: 100%;
     height: 400px !important;
     gap: 10px !important;
@@ -78,8 +78,8 @@
   .joinUs {
     padding: 0;
     margin: 0;
-    left: 0;
-    width: 100%;
+    left: 5px !important;
+    width: 98% !important;
     margin: 0px auto;
   }
   .section-2 {

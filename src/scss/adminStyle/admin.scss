@@ -9,6 +9,7 @@ body {
 
     .leftLogoX {
       display: flex;
+      align-items: center;
 
       .logo-group {
         width: 320px;
@@ -17,8 +18,14 @@ body {
         margin-top: 28%;
       }
 
-      .x {
-        display: none;
+      .xBtn {
+        background-color: #720418;
+        border: 0;
+        height: 40px;
+
+        .x {
+          display: none;
+        }
       }
     }
 
@@ -30,7 +37,7 @@ body {
 
   .adminPage_right {
     background-color: #fffaf5;
-    width: 70%;
+    width: 80%;
 
     .logoHamburger {
       display: flex;
@@ -88,7 +95,7 @@ body {
     }
 
     .bookForm {
-      width: 100%;
+      // width: 100%;
       padding-left: 80px;
       margin-top: 80px;
 
@@ -314,6 +321,22 @@ body {
     margin: 0;
     .adminPage_left {
       display: none;
+      position: absolute;
+      width: 100%;
+
+      .leftLogoX {
+        display: flex;
+        justify-content: space-around;
+        .logo-group {
+          width: 280px;
+          margin: 0;
+        }
+        .xBtn {
+          .x {
+            display: block;
+          }
+        }
+      }
     }
 
     .adminPage_right {

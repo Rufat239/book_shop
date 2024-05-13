@@ -10,6 +10,7 @@ body .adminPage_left {
 }
 body .adminPage_left .leftLogoX {
   display: flex;
+  align-items: center;
 }
 body .adminPage_left .leftLogoX .logo-group {
   width: 320px;
@@ -17,7 +18,12 @@ body .adminPage_left .leftLogoX .logo-group {
   margin-left: 10%;
   margin-top: 28%;
 }
-body .adminPage_left .leftLogoX .x {
+body .adminPage_left .leftLogoX .xBtn {
+  background-color: #720418;
+  border: 0;
+  height: 40px;
+}
+body .adminPage_left .leftLogoX .xBtn .x {
   display: none;
 }
 body .adminPage_left .pages {
@@ -26,7 +32,7 @@ body .adminPage_left .pages {
 }
 body .adminPage_right {
   background-color: #fffaf5;
-  width: 70%;
+  width: 80%;
 }
 body .adminPage_right .logoHamburger {
   display: flex;
@@ -77,7 +83,6 @@ body .adminPage_right .search .inpBtn .searchBtn img {
   height: 50px;
 }
 body .adminPage_right .bookForm {
-  width: 100%;
   padding-left: 80px;
   margin-top: 80px;
 }
@@ -276,6 +281,19 @@ body .adminPage_right .contactUs table th {
   }
   body .adminPage_left {
     display: none;
+    position: absolute;
+    width: 100%;
+  }
+  body .adminPage_left .leftLogoX {
+    display: flex;
+    justify-content: space-around;
+  }
+  body .adminPage_left .leftLogoX .logo-group {
+    width: 280px;
+    margin: 0;
+  }
+  body .adminPage_left .leftLogoX .xBtn .x {
+    display: block;
   }
   body .adminPage_right {
     width: 100%;

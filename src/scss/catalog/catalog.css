@@ -317,7 +317,6 @@ body .header .header-list li a:nth-child(3):hover {
   justify-content: center;
   flex-direction: column;
   background: #fff;
-  width: 40%;
   width: 35%;
   height: 500px;
   gap: 18px;

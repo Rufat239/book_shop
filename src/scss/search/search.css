@@ -402,6 +402,7 @@ button {
 @media only screen and (max-width: 431px) {
     body {
         overflow-x: hidden;
+        width: 100vw;
     }
 
     .header {
@@ -581,7 +582,9 @@ button {
     }
 
 
-
+.swiper{
+    width: 300px !important;
+}
 
 
 

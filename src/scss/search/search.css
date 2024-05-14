@@ -523,8 +523,8 @@ body {
 .swiper-button-prev {
     color: rgba(114, 4, 24, 1) !important;
     margin-top: 60px !important;
-    margin-left: px;
     display: block !important;
+    
     
     
 
@@ -534,8 +534,8 @@ body {
 .swiper-button-next {
     color: rgba(114, 4, 24, 1) !important;
     margin-top: 60px !important;
-    margin-right: 100px;
     display: block !important;
+    
 }
 
 

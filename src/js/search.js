@@ -37,9 +37,13 @@ function fetchBooks(bookName) {
             const book = document.createElement('div');
             book.classList.add('swiper-slide');
             book.style.height = "400px"
+            book.style.width = "700px !important"
             book.style.display = "flex";
             book.style.flexDirection = "row"
-            
+            book.style.backgroundColor="rgba(255, 255, 255, 1)"
+            book.style.border = "solid 1px"
+            book.style.borderColor = "rgba(0, 0, 0, 0.25)"
+            book.style.flexWrap = "nowrap"
             
 
             const img = document.createElement('img');
@@ -57,10 +61,13 @@ function fetchBooks(bookName) {
             textContainer.style.flexDirection = "column";
             textContainer.style.width ="300px !important"
             textContainer.style.paddingLeft = "20px"
+            
 
             const title = document.createElement('h2');
             title.textContent = item.volumeInfo.title;
             title.style.fontWeight = "bold"
+            title.style.paddingTop = "35px"
+            
 
 
 
@@ -78,7 +85,7 @@ function fetchBooks(bookName) {
             description.textContent = item.volumeInfo.description;
             description.style.height = "200px !important"
             description.style.marginTop = "70px"
-            description.style.maxWidth = "calc(100% - 340px)"
+            description.style.width = "500px"
             description.style.overflowY = "auto"
 
 
@@ -96,12 +103,12 @@ function fetchBooks(bookName) {
 
         
         const swiper = new Swiper('.swiper', {
-            // Your swiper settings here
             loop: true, // Looping through slides
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
-        }});
+                
+        }}); 
     })
     .catch(error => {
         console.error('Error fetching books:', error);

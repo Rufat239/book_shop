@@ -34,13 +34,13 @@ body {
   color: rgb(225, 106, 0);
 }
 
-.header-list li:nth-child(3) a {
+.header-list li:nth-child(4) a {
   color: rgb(225, 106, 0);
   font-weight: 700;
   text-decoration-line: underline;
 }
 
-.header-list li:nth-child(3) a:hover {
+.header-list li:nth-child(4) a:hover {
   color: #000;
   text-decoration: none;
 }
@@ -303,7 +303,7 @@ body {
   text-align: center;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 431px) {
   .header {
     width: 100%;
     padding-left: 15px;
@@ -337,7 +337,7 @@ body {
     font-size: 11px;
   }
 
-  @media screen and (max-width: 430px) {
+  @media screen and (max-width: 431px) {
     .contact {
       margin: 10px;
     }

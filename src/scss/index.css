@@ -246,7 +246,7 @@ body {
   display: none;
 }
 
-/* responsive */
+/* responsive media */
 
 @media (max-width: 680px) {
   .header {
@@ -655,3 +655,5 @@ body {
     font-size: 1.8rem;
   }
 }
+
+/* test */

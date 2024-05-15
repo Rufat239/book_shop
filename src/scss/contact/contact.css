@@ -303,7 +303,7 @@ body {
   text-align: center;
 }
 
-@media (max-width: 680px) {
+@media (max-width: 430px) {
   .header {
     width: 100%;
     padding-left: 15px;

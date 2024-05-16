@@ -9,10 +9,10 @@ body {
   height: 80px;
   background-color: rgb(255, 250, 245);
   /* border-bottom: 2px solid whitesmoke;  */
-  padding-left: 110px;
+  padding-left: 150px;
   padding-right: 64px;
   z-index: 99;
-  margin-left: 50px;
+  /* margin-left: 50px; */
 }
 
 .header-list {

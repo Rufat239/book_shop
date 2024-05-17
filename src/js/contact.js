@@ -33,7 +33,6 @@ const nameInput = document.querySelector("#name");
 const surNameInput = document.querySelector("#surname");
 const emailInput = document.querySelector("#email");
 const phoneInput = document.querySelector("#phone");
-const textInput = document.querySelector("#textarea");
 const send = document.querySelector(".sendBtn");
 
 const infoImg = document.querySelector(".warning-img");
@@ -41,11 +40,14 @@ const infoMsg = document.querySelector(".warning-msg");
 const infoTitle = document.querySelector(".modal-title");
 
 function checkUser() {
-  if (
-    emailInput.value.length === 0 ||
-    phoneInput.value.length === 0 ||
-    textInput.value.length === 0
+  if (!emailInput.value.includes("@")) {
+    emailInput.style.border = "2px solid red";
+  } else if (
+    phoneInput.value.trim() === "" ||
+    !/^\d{10}$/.test(phoneInput.value)
   ) {
+    phoneInput.style.border = "2px solid red";
+  } else if (emailInput.value.length === 0 || phoneInput.value.length === 0) {
     send.setAttribute("data-toggle", "modal");
     send.setAttribute("data-target", "#exampleModal");
   } else {

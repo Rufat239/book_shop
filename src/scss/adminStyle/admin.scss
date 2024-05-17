@@ -95,6 +95,13 @@ body {
           }
         }
       }
+      .partBookList {
+        width: 30%;
+        height: 50px;
+        border: 2px solid #a09385;
+        border-radius: 10px;
+        overflow: auto;
+      }
     }
 
     .bookForm {

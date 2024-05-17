@@ -82,6 +82,13 @@ body .adminPage_right .search .inpBtn .searchBtn img {
   width: 70px;
   height: 50px;
 }
+body .adminPage_right .search .partBookList {
+  width: 30%;
+  height: 50px;
+  border: 2px solid #a09385;
+  border-radius: 10px;
+  overflow: auto;
+}
 body .adminPage_right .bookForm {
   padding-left: 80px;
   margin-top: 80px;

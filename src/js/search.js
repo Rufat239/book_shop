@@ -1,9 +1,4 @@
-function open() {
-    document.querySelector(".downloadingImg").style.display = "none";
-    document.querySelector(".main").style.opacity = "1";
-}
 
-setTimeout(open, 2000);
 
 document.querySelector(".joinUsBtn").addEventListener("click", function () {
     document.querySelector(".joinUsSection").style.display = "flex";
@@ -19,6 +14,7 @@ document.addEventListener("click", function (e) {
     if (!joinUsBtn.contains(e.target) && !joinUs.contains(e.target)) {
         joinUsSection.style.display = "none";
         document.body.style.overflow = "auto";
+        
     }
 });
 

@@ -2,7 +2,7 @@ const hamburgerBtn = document.querySelector(".hamburgerBtn");
 const adminPage_left = document.querySelector(".adminPage_left");
 const adminPage_right = document.querySelector(".adminPage_right");
 const xBtn = document.querySelector(".xBtn");
-const sarechInp = document.querySelector(".sarechInp");
+const searchInp = document.querySelector(".searchInp");
 const searchBtn = document.querySelector(".searchBtn");
 const partBookList = document.querySelector(".partBookList");
 const title = document.querySelector(".title");
@@ -33,8 +33,9 @@ async function getData(title) {
 }
 
 searchBtn.addEventListener("click", async function () {
-  if (sarechInp.value) {
-    let data = await getData(sarechInp.value);
+  partBookList.style.display = "block";
+  if (searchInp.value) {
+    let data = await getData(searchInp.value);
     addingMainSection(data);
   }
 });
@@ -44,12 +45,14 @@ function addingMainSection(data) {
     const bookElement = document.createElement("div");
     bookElement.innerHTML = `<p style="cursor: pointer;"><strong>Title:</strong> ${element.volumeInfo.title}</p>`;
     bookElement.addEventListener("click", function () {
-      console.log(element.volumeInfo.title);
+      // console.log(element.volumeInfo.title);
       title.value = element.volumeInfo.title;
       authorName.value = element.volumeInfo.authors;
       bookImageUrl.value = element.volumeInfo.imageLinks.thumbnail;
       description.value = element.volumeInfo.description;
       bookType.value = element.volumeInfo.categories;
+      searchInp.value = "";
+      partBookList.style.display = "none";
     });
     partBookList.append(bookElement);
   });

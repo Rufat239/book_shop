@@ -3,7 +3,7 @@ function open() {
   document.querySelector(".main").style.opacity = "1";
 }
 
-setTimeout(open, 2000);
+setTimeout(open, 500);
 
 document.querySelector(".joinUsBtn").addEventListener("click", function () {
   document.querySelector(".joinUsSection").style.display = "flex";

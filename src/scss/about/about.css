@@ -73,7 +73,11 @@ body {
     font-size: 30px;
 }
 
-
+.img-div{
+  
+  margin: 20px;
+ 
+}
 
   .joinUsSection {
     z-index: 999;
@@ -194,11 +198,8 @@ body {
     display: none;
   }
   
-  
-
-
   .section-2 {
-    margin-top: 200px;
+    margin-top: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;

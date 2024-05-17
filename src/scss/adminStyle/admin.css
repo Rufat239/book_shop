@@ -41,6 +41,7 @@ body .adminPage_right .logoHamburger {
 }
 body .adminPage_right .nameAdmin {
   margin-top: 60px;
+  margin-right: 60px;
   display: flex;
   align-items: center;
   justify-content: end;
@@ -71,6 +72,7 @@ body .adminPage_right .search .inpBtn {
 body .adminPage_right .search .inpBtn .searchInp {
   width: 500px;
   height: 41px;
+  font-size: 20px;
   border: 3px solid #a09385;
   border-radius: 34px;
   padding-left: 20px;
@@ -87,7 +89,6 @@ body .adminPage_right .search .partBookList {
   width: 20%;
   height: 80px;
   background-color: #f1f0f0;
-  border: 2px solid #a09385;
   border-radius: 10px;
   overflow: auto;
   display: none;
@@ -341,13 +342,6 @@ body .adminPage_right .contactUs table th {
   body .adminPage_right .search .partBookList {
     width: 50%;
     height: 80px;
-    background-color: #f1f0f0;
-    border: 2px solid #a09385;
-    border-radius: 10px;
-    overflow: auto;
-    display: none;
-    padding-left: 20px;
-    margin-left: 10px;
   }
   body .adminPage_right .bookForm {
     width: 100%;

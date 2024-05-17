@@ -34,6 +34,7 @@ const surNameInput = document.querySelector("#surname");
 const emailInput = document.querySelector("#email");
 const phoneInput = document.querySelector("#phone");
 const send = document.querySelector(".sendBtn");
+const text = document.querySelector("#textarea");
 
 const infoImg = document.querySelector(".warning-img");
 const infoMsg = document.querySelector(".warning-msg");
@@ -54,6 +55,13 @@ function checkUser() {
     infoImg.innerHTML = `<img src="../img/contact/succes.jpg" alt="">`;
     infoMsg.innerHTML = ` <br /> <p class="default-msg">Müraciətiniz göndərildi! Təşəkkür edirik!</p>`;
     infoTitle.textContent = "GÖNDƏRİLDİ !";
+    nameInput.value = "";
+    surNameInput.value = "";
+    emailInput.value = "";
+    phoneInput.value = "";
+    text.value = "";
+    phoneInput.style.border = "";
+    emailInput.style.border = "";
     send.setAttribute("data-toggle", "modal");
     send.setAttribute("data-target", "#exampleModal");
   }

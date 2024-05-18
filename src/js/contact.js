@@ -54,6 +54,8 @@ function checkUser() {
     infoImg.innerHTML = `<img src="../img/contact/succes.jpg" alt="">`;
     infoMsg.innerHTML = ` <br /> <p class="default-msg">Müraciətiniz göndərildi! Təşəkkür edirik!</p>`;
     infoTitle.textContent = "GÖNDƏRİLDİ !";
+    phoneInput.style.border = "none";
+    emailInput.style.border = "none";
     send.setAttribute("data-toggle", "modal");
     send.setAttribute("data-target", "#exampleModal");
   }

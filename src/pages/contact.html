@@ -13,6 +13,24 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer" />
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap"
       rel="stylesheet" />
@@ -47,26 +65,17 @@
               <a class="nav-link" href="./catalog.html">Catalog</a>
             </li>
             <li class="nav-item dropdown">
-              <a
-                class="nav-link"
-                href="./about.html"
-                aria-disabled="true">
+              <a class="nav-link" href="./about.html" aria-disabled="true">
                 About Store
               </a>
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link"
-                href="./contact.html"
-                aria-disabled="true"
+              <a class="nav-link" href="./contact.html" aria-disabled="true"
                 >Contact Us</a
               >
             </li>
             <li class="nav-item">
-              <a
-                class="nav-link"
-                href="./search.html"
-                aria-disabled="true"
+              <a class="nav-link" href="./search.html" aria-disabled="true"
                 >Search</a
               >
             </li>
@@ -102,18 +111,62 @@
     </section>
 
     <div class="contact">
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                YENİDƏN CƏHD EDİN!
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="warning-img">
+                <img src="../img/contact/warning.webp" alt="" />
+              </div>
+              <div class="warning-msg">
+                <br />
+                <p class="default-msg">Daxil etdiyiniz məlumatlar TAM DEYİL!</p>
+                <br />
+                <p class="dynmc-msg">Xahiş edirik lazımi sahələri doldurun.</p>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                style="background-color: #e16a00; border: none"
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal">
+                Oldu
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="contactUs">
-        <h1>Conact Us</h1>
+        <h1>Contact Us</h1>
       </div>
 
       <div class="input-div">
-        <input class=input "text" placeholder="Full Name">
-        <input class="input" type="text" placeholder="Email" />
+        <input id="name" class=input "text" placeholder="Name">
+        <input id="email" class="input" type="email" placeholder="Email" />
       </div>
 
       <div class="input-div">
-        <input class="input" type="text" placeholder="Full Name" />
-        <input class="input" type="text" placeholder="Email" />
+        <input id="surname" class="input" type="text" placeholder="Surname" />
+        <input id="phone" class="input" type="tel" placeholder="Phone" />
       </div>
 
       <div class="input-note-div">
@@ -121,10 +174,10 @@
           class="input-note"
           placeholder="Note"
           name=""
-          id=""></textarea>
+          id="textarea"></textarea>
       </div>
 
-      <button class="btn2">Send</button>
+      <button class="btn2 sendBtn">Send</button>
     </div>
 
     <section class="section-2">

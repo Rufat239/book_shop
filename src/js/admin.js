@@ -78,6 +78,7 @@ import {
 
 const addBtn = document.querySelector(".addBtn");
 const admininsiyahisi = document.querySelector("#adminKitabSiyahi");
+const radios = document.querySelectorAll('input[name="x"]');
 
 onValue(ref(db, "/ourBooks"), function (snapshot) {
   admininsiyahisi.innerHTML = "";
@@ -91,6 +92,8 @@ onValue(ref(db, "/ourBooks"), function (snapshot) {
 });
 
 addBtn.addEventListener("click", function () {
+  const selectedRadio = document.querySelector('input[name="x"]:checked');
+
   const addingBook = {
     bookTitle: title.value,
     bookAuthor: authorName.value,
@@ -103,6 +106,10 @@ addBtn.addEventListener("click", function () {
   set(newBookRef, addingBook).then(() => {
     clearInputFields();
   });
+
+  const category = selectedRadio.id;
+  const categoryBookRef = push(ref(db, `/${category}`));
+  set(categoryBookRef, addingBook);
 });
 
 function updateTableWithBook(bookData, index) {
@@ -124,4 +131,5 @@ function clearInputFields() {
   bookImageUrl.value = "";
   description.value = "";
   bookType.value = "";
+  radios.forEach((radio) => (radio.checked = false));
 }

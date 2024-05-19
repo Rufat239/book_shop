@@ -101,10 +101,8 @@ addBtn.addEventListener("click", function () {
 
   const newBookRef = push(ref(db, "/ourBooks"));
   set(newBookRef, addingBook).then(() => {
-    updateTableWithBook(addingBook, admininsiyahisi.children.length + 1);
+    clearInputFields();
   });
-
-  clearInputFields();
 });
 
 function updateTableWithBook(bookData, index) {

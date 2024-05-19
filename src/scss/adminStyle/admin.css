@@ -130,6 +130,16 @@ body .adminPage_right .bookForm textarea {
   border-radius: 10px;
   font-size: 16px;
 }
+body .adminPage_right .bookForm .labCheck {
+  font-size: 16px;
+  font-weight: 600;
+}
+body .adminPage_right .bookForm .checks {
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  margin-bottom: 20px;
+}
 body .adminPage_right .bookForm .addBtn {
   margin-left: 20px;
   width: 86%;

@@ -278,6 +278,18 @@ body {
           height: 44px;
           font-size: 14px;
           font-weight: 400;
+          img {
+            width: 70%;
+          }
+          .deleteBookBtn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 10px;
+            cursor: pointer;
+          }
         }
 
         th {

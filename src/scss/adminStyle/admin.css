@@ -244,6 +244,18 @@ body .adminPage_right .books table td {
   font-size: 14px;
   font-weight: 400;
 }
+body .adminPage_right .books table td img {
+  width: 70%;
+}
+body .adminPage_right .books table td .deleteBookBtn {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
 body .adminPage_right .books table th {
   background-color: #720418;
   text-align: center;

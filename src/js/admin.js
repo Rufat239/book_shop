@@ -34,6 +34,7 @@ async function getData(title) {
 
 searchBtn.addEventListener("click", async function () {
   partBookList.style.display = "block";
+  partBookList.innerHTML = "";
   if (searchInp.value) {
     let data = await getData(searchInp.value);
     addingMainSection(data);
@@ -65,3 +66,64 @@ function fetchAdminName() {
   adminName.textContent = storedName;
 }
 document.addEventListener("DOMContentLoaded", fetchAdminName);
+
+// Firabase Functions
+import db from "./firebase.mjs";
+import {
+  set,
+  ref,
+  push,
+  onValue,
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const addBtn = document.querySelector(".addBtn");
+const admininsiyahisi = document.querySelector("#adminKitabSiyahi");
+
+onValue(ref(db, "/ourBooks"), function (snapshot) {
+  admininsiyahisi.innerHTML = "";
+
+  let index = 1;
+
+  snapshot.forEach((childSnapshot) => {
+    const bookData = childSnapshot.val();
+    updateTableWithBook(bookData, index++);
+  });
+});
+
+addBtn.addEventListener("click", function () {
+  const addingBook = {
+    bookTitle: title.value,
+    bookAuthor: authorName.value,
+    bookImg: bookImageUrl.value,
+    bookdesc: description.value,
+    bookcategory: bookType.value,
+  };
+
+  const newBookRef = push(ref(db, "/ourBooks"));
+  set(newBookRef, addingBook).then(() => {
+    updateTableWithBook(addingBook, admininsiyahisi.children.length + 1);
+  });
+
+  clearInputFields();
+});
+
+function updateTableWithBook(bookData, index) {
+  admininsiyahisi.innerHTML += `
+    <tr>
+      <td>${index}</td>
+      <td><img src="${bookData.bookImg}" alt="" /> <br/>${bookData.bookTitle}</td>
+      <td>${bookData.bookdesc}</td>
+      <td>${bookData.bookcategory}</td>
+      <td>${bookData.bookAuthor}</td>
+      <td><button class="deleteBookBtn"><i class="fa-solid fa-trash-can"></i></button></td>
+    </tr>
+  `;
+}
+
+function clearInputFields() {
+  title.value = "";
+  authorName.value = "";
+  bookImageUrl.value = "";
+  description.value = "";
+  bookType.value = "";
+}

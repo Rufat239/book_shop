@@ -57,3 +57,12 @@ function addingMainSection(data) {
     partBookList.append(bookElement);
   });
 }
+
+// Fecth Data from Login Page
+const adminName = document.querySelector("#adminName");
+
+function fetchAdminName() {
+  let storedName = localStorage.getItem("username");
+  adminName.textContent = storedName;
+}
+document.addEventListener("DOMContentLoaded", fetchAdminName);

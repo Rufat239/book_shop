@@ -1,143 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../../scss/adminStyle/admin.css" />
-    <title>Document</title>
-  </head>
 
-  <body>
-    <div class="adminPage_left">
-      <div class="leftLogoX">
-        <img class="logo-group" src="../../image/logo-group.svg" alt="" />
-        <button class="xBtn">
-          <img class="x" src="../../image/Vector 6.svg" alt="" />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../../scss/adminStyle/admin.css" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="adminPage_left">
+    <div class="leftLogoX">
+      <img class="logo-group" src="../../image/logo-group.svg" alt="" />
+      <button class="xBtn">
+        <img class="x" src="../../image/Vector 6.svg" alt="" />
+      </button>
+    </div>
+    <a href=""><img class="pages" src="../../image/log-home.svg" alt="" /></a>
+    <a href="#bookss"><img class="pages" src="../../image/logo-books.svg" alt="" /></a>
+    <a href="#aboutSection"><img class="pages" src="../../image/logo-about.svg" alt="" /></a>
+    <a href="#join"><img class="pages" src="../../image/logo-join.svg" alt="" /></a>
+    <a href="#contact"><img class="pages" src="../../image/logo-contact.svg" alt="" /></a>
+    <a href="./loginAdmin.html"><img class="pages" src="../../image/logo-logout.svg" alt="" /></a>
+  </div>
+
+  <div class="adminPage_right">
+    <div class="logoHamburger">
+      <img src="../../image/logo-responsive.svg" alt="" />
+      <button class="hamburgerBtn">
+        <img src="../../image/hamburger.svg" alt="" />
+      </button>
+    </div>
+    <p class="nameAdmin">
+      <img src="../../image/Profile.svg" alt="" /><span id="adminName">Admin</span>
+    </p>
+    <h2>Add book</h2>
+    <div class="search">
+      <h3>Search book</h3>
+      <div class="inpBtn">
+        <input class="searchInp" type="text" />
+        <button class="searchBtn">
+          <img src="../../image/searchButton.svg" alt="" />
         </button>
       </div>
-      <a href=""><img class="pages" src="../../image/log-home.svg" alt="" /></a>
-      <a href="#bookss"
-        ><img class="pages" src="../../image/logo-books.svg" alt=""
-      /></a>
-      <a href="#aboutSection"
-        ><img class="pages" src="../../image/logo-about.svg" alt=""
-      /></a>
-      <a href="#join"
-        ><img class="pages" src="../../image/logo-join.svg" alt=""
-      /></a>
-      <a href="#contact"
-        ><img class="pages" src="../../image/logo-contact.svg" alt=""
-      /></a>
-      <a href="./loginAdmin.html"
-        ><img class="pages" src="../../image/logo-logout.svg" alt=""
-      /></a>
+
+      <div class="partBookList"></div>
+    </div>
+    <div class="bookForm">
+      <h3>Book form</h3>
+
+      <form action="">
+        <label for="">Book Name</label><br />
+        <input class="title" type="text" /><br />
+        <label for="">Author Name</label><br />
+        <input class="authorName" type="text" /><br />
+        <label for="">Book Image Url</label><br />
+        <input class="bookImageUrl" type="text" /><br />
+        <label for="">Description</label><br /><br />
+        <textarea class="description" id=""></textarea><br />
+        <label for="">Book Type</label><br />
+        <input class="bookType" type="text" /><br>
+        <label class="labCheck" for="">New:</label>
+        <input class="checks" type="checkbox">
+        <label class="labCheck" for="">Besteller:</label>
+        <input class="checks" type="checkbox">
+        <label class="labCheck" for="">Common:</label>
+        <input class="checks" type="checkbox">
+      </form>
+
+      <button class="addBtn">Add</button>
     </div>
 
-    <div class="adminPage_right">
-      <div class="logoHamburger">
-        <img src="../../image/logo-responsive.svg" alt="" />
-        <button class="hamburgerBtn">
-          <img src="../../image/hamburger.svg" alt="" />
-        </button>
-      </div>
-      <p class="nameAdmin">
-        <img src="../../image/Profile.svg" alt="" /><span id="adminName"
-          >Admin</span
-        >
-      </p>
-      <h2>Add book</h2>
-      <div class="search">
-        <h3>Search book</h3>
-        <div class="inpBtn">
-          <input class="searchInp" type="text" />
-          <button class="searchBtn">
-            <img src="../../image/searchButton.svg" alt="" />
-          </button>
-        </div>
+    <div id="aboutSection" class="aboutStore">
+      <h3>About Store</h3>
+      <form action="">
+        <label for="">Title</label><br />
+        <input type="text" /><br />
+        <label for="">Book Image Url</label><br />
+        <input type="text" /><br />
+        <label for="">Description</label><br /><br />
+        <textarea name="" id=""></textarea>
+      </form>
+      <button class="aboutAddBtn">About info add</button>
+    </div>
 
-        <div class="partBookList"></div>
-      </div>
-      <div class="bookForm">
-        <h3>Book form</h3>
+    <div id="join" class="joinUs">
+      <h3>Join Us</h3>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Full Name</th>
+          <th>Email Address</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Audrey Mckinney</td>
+          <td>lisa.watson@example.com</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Savannah Howard</td>
+          <td>jeff.brown@example.com</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Morris Cooper</td>
+          <td>terra.hamilton@example.com</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Victoria Lane</td>
+          <td>deanna.curtis@example.com</td>
+        </tr>
+      </table>
+    </div>
 
-        <form action="">
-          <label for="">Book Name</label><br />
-          <input class="title" type="text" /><br />
-          <label for="">Author Name</label><br />
-          <input class="authorName" type="text" /><br />
-          <label for="">Book Image Url</label><br />
-          <input class="bookImageUrl" type="text" /><br />
-          <label for="">Description</label><br /><br />
-          <textarea class="description" id=""></textarea><br />
-          <label for="">Book Type</label><br />
-          <input class="bookType" type="text" />
-        </form>
-        <button class="addBtn">Add</button>
-      </div>
-
-      <div id="aboutSection" class="aboutStore">
-        <h3>About Store</h3>
-        <form action="">
-          <label for="">Title</label><br />
-          <input type="text" /><br />
-          <label for="">Book Image Url</label><br />
-          <input type="text" /><br />
-          <label for="">Description</label><br /><br />
-          <textarea name="" id=""></textarea>
-        </form>
-        <button class="aboutAddBtn">About info add</button>
-      </div>
-
-      <div id="join" class="joinUs">
-        <h3>Join Us</h3>
-        <table>
-          <tr>
-            <th>#</th>
-            <th>Full Name</th>
-            <th>Email Address</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Audrey Mckinney</td>
-            <td>lisa.watson@example.com</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Savannah Howard</td>
-            <td>jeff.brown@example.com</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Morris Cooper</td>
-            <td>terra.hamilton@example.com</td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>Victoria Lane</td>
-            <td>deanna.curtis@example.com</td>
-          </tr>
-        </table>
-      </div>
-
-      <div id="bookss" class="books">
-        <h3>Books</h3>
-        <table>
-          <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Category</th>
-            <th>Author</th>
-            <th>Actions</th>
-          </tr>
-          <tbody id="adminKitabSiyahi"></tbody>
-          <!-- <tr>
+    <div id="bookss" class="books">
+      <h3>Books</h3>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Category</th>
+          <th>Author</th>
+          <th>Actions</th>
+        </tr>
+        <tbody id="adminKitabSiyahi"></tbody>
+        <!-- <tr>
             <td>1</td>
             <td><img src="../../image/image 8.svg" alt="" />Angels</td>
             <td>Lorem ipsum test...</td>
@@ -149,53 +142,54 @@
               </button>
             </td>
           </tr> -->
-        </table>
-      </div>
-      <div id="contact" class="contactUs">
-        <h3>Contact Us</h3>
-        <table>
-          <tr>
-            <th>#</th>
-            <th>Full Name</th>
-            <th>Address</th>
-            <th>Email Address</th>
-            <th>Phone Number</th>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Audrey Mckinney</td>
-            <td>1473 Ranchview Dr undefined San Jose</td>
-            <td>lisa.watson@example.com</td>
-            <td>(209) 555-0104</td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td>Savannah Howard</td>
-            <td>8445 Railroad St undefined Tampa</td>
-            <td>jeff.brown@example.com</td>
-            <td>(201) 555-0124</td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td>Morris Cooper</td>
-            <td>8584 W Sherman Dr undefined Desoto</td>
-            <td>terra.hamilton@example.com</td>
-            <td>(505) 555-0125</td>
-          </tr>
-
-          <tr>
-            <td>1</td>
-            <td>Victoria Lane</td>
-            <td>1921 Ranchview Dr undefined San Francisco</td>
-            <td>deanna.curtis@example.com</td>
-            <td>(704) 555-0127</td>
-          </tr>
-        </table>
-      </div>
+      </table>
     </div>
+    <div id="contact" class="contactUs">
+      <h3>Contact Us</h3>
+      <table>
+        <tr>
+          <th>#</th>
+          <th>Full Name</th>
+          <th>Address</th>
+          <th>Email Address</th>
+          <th>Phone Number</th>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Audrey Mckinney</td>
+          <td>1473 Ranchview Dr undefined San Jose</td>
+          <td>lisa.watson@example.com</td>
+          <td>(209) 555-0104</td>
+        </tr>
 
-    <script type="module" src="../../js/admin.js"></script>
-  </body>
+        <tr>
+          <td>1</td>
+          <td>Savannah Howard</td>
+          <td>8445 Railroad St undefined Tampa</td>
+          <td>jeff.brown@example.com</td>
+          <td>(201) 555-0124</td>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>Morris Cooper</td>
+          <td>8584 W Sherman Dr undefined Desoto</td>
+          <td>terra.hamilton@example.com</td>
+          <td>(505) 555-0125</td>
+        </tr>
+
+        <tr>
+          <td>1</td>
+          <td>Victoria Lane</td>
+          <td>1921 Ranchview Dr undefined San Francisco</td>
+          <td>deanna.curtis@example.com</td>
+          <td>(704) 555-0127</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <script type="module" src="../../js/admin.js"></script>
+</body>
+
 </html>

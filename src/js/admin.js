@@ -60,7 +60,6 @@ function addingMainSection(data) {
 
 // Fecth Data from Login Page
 const adminName = document.querySelector("#adminName");
-
 function fetchAdminName() {
   let storedName = localStorage.getItem("username");
   adminName.textContent = storedName;

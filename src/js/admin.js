@@ -133,3 +133,28 @@ function clearInputFields() {
   bookType.value = "";
   radios.forEach((radio) => (radio.checked = false));
 }
+
+const aboutAddBtn = document.querySelector(".aboutAddBtn");
+const aboutTitle = document.querySelector(".aboutTitle");
+const aboutImageUrl = document.querySelector(".aboutImageUrl");
+const aboutDescription = document.querySelector(".aboutDesc");
+
+function addAboutStore() {
+  const title = aboutTitle.value;
+  const aboutİmage = aboutImageUrl.value;
+  const aboutDesc = aboutDescription.value;
+
+  const addingAboutStore = {
+    title,
+    aboutİmage,
+    aboutDesc,
+  };
+
+  set(ref(db, "abouStoretData"), addingAboutStore).then(() => {
+    aboutTitle.value = "";
+    aboutImageUrl.value = "";
+    aboutDescription.value = "";
+  });
+}
+
+aboutAddBtn.addEventListener("click", addAboutStore);

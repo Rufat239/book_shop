@@ -92,7 +92,6 @@ onValue(ref(db, "/ourBooks"), function (snapshot) {
 });
 
 addBtn.addEventListener("click", function () {
-  // Seçili olan radio butonunu bul
   const selectedRadio = document.querySelector('input[name="x"]:checked');
 
   const addingBook = {

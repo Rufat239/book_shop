@@ -306,7 +306,7 @@ body .header .header-list li a:nth-child(3):hover {
     flex-direction: row !important;
     justify-content: space-evenly;
     margin-top: 250px;
-    margin-left: 200px;
+    margin-left: 240px;
     width: 830px;
     
 
@@ -346,6 +346,7 @@ body .header .header-list li a:nth-child(3):hover {
     color: rgba(114, 4, 24, 1) !important;
     margin-top: 60px !important;
     display: block !important;
+    margin-left: -2px;
     
     
     
@@ -357,7 +358,7 @@ body .header .header-list li a:nth-child(3):hover {
     color: rgba(114, 4, 24, 1) !important;
     margin-top: 60px !important;
     display: block !important;
-    
+    margin-right: 10px !important;
 }
 
 

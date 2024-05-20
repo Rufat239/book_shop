@@ -37,13 +37,13 @@ function fetchBooks(bookName) {
             const book = document.createElement('div');
             book.classList.add('swiper-slide');
             book.style.height = "400px"
-            book.style.width = "700px !important"
+            book.style.width = "500px !important"
             book.style.display = "flex";
             book.style.flexDirection = "row"
             book.style.backgroundColor="rgba(255, 255, 255, 1)"
             book.style.border = "solid 1px"
             book.style.borderColor = "rgba(0, 0, 0, 0.25)"
-            book.style.flexWrap = "nowrap"
+            
             
 
             const img = document.createElement('img');
@@ -67,6 +67,7 @@ function fetchBooks(bookName) {
             title.textContent = item.volumeInfo.title;
             title.style.fontWeight = "bold"
             title.style.paddingTop = "35px"
+            title.style.width = "400px"
             
 
 

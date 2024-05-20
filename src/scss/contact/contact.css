@@ -200,6 +200,34 @@ body {
   margin-right: 870px;
 }
 
+/* Modal */
+.error {
+  border: 2px solid red;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-header button {
+  border: none;
+  color: rgb(255, 255, 255);
+  background-color: red;
+  border-radius: 5px;
+}
+
+.modal-body .warning-img {
+  width: 100%;
+  color: #e16a00;
+}
+.modal-body .warning-img img {
+  width: 50%;
+  margin: auto;
+}
+.modal-body .warning-msg .dynmc-msg span {
+  color: red;
+  font-weight: 700;
+}
+
 .input {
   background: #ffffff;
   width: 500px;

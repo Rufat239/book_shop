@@ -436,7 +436,7 @@ body {
   flex-wrap: wrap;
 }
 
-.category-item {
+.category-item a {
   display: inline-block;
   color: #241400;
   font-size: 0.875rem;
@@ -448,6 +448,7 @@ body {
   padding: 1.5rem 0;
   text-align: center;
   width: 15rem;
+  text-decoration: none;
 }
 
 .glow-on-hover {

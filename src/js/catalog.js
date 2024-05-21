@@ -45,3 +45,87 @@ function getDirection() {
 function getSlidesPerView() {
   return window.innerWidth <= 600 ? 1 : 5;
 }
+
+// Firebase
+import db from "./firebase.mjs";
+import {
+  ref,
+  onValue,
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+
+const allBooks = document.querySelector(".allbooks");
+const bestsellerbooks = document.querySelector(".bestsellerbooks");
+const newbooks = document.querySelector(".newbooks");
+
+function truncateText(text, maxLength) {
+  if (text === "undefined" || text === null) {
+    text = "No Info in Database";
+  }
+  if (text.length > maxLength) {
+    return text.slice(0, maxLength) + "...";
+  }
+  return text;
+}
+
+function updateTableWithBook(bookData, snapshot) {
+  const truncatedTitle = truncateText(bookData.bookTitle, 20);
+  const truncatedAuthor = truncateText(bookData.bookAuthor, 20);
+  const bookId = snapshot.id;
+  console.log(bookId);
+
+  allBooks.innerHTML += `
+    <div class="swiper-slide">
+      <div class="book">
+        <img src="${bookData.bookImg}" alt="" />
+        <h3>${truncatedTitle}</h3>
+        <p>${truncatedAuthor}</p>
+        <button><a href="../pages/bookpage.html?${bookId}">ReadMore</a></button>
+      </div>
+    </div>
+  `;
+  bestsellerbooks.innerHTML += `
+    <div class="swiper-slide">
+      <div class="book">
+        <img src="${bookData.bookImg}" alt="" />
+        <h3>${truncatedTitle}</h3>
+        <p>${truncatedAuthor}</p>
+        <a href="../pages/bookpage.html?${bookId}"><button>Read more</button></a>
+      </div>
+    </div>
+  `;
+  newbooks.innerHTML += `
+    <div class="swiper-slide">
+      <div class="book">
+        <span>NEW</span>
+        <img src="${bookData.bookImg}" alt="" />
+        <h3>${truncatedTitle}</h3>
+        <p>${truncatedAuthor}</p>
+        <a href="../pages/bookpage.html?${bookId}"><button>Read more</button></a>
+      </div>
+    </div>
+  `;
+}
+
+onValue(ref(db, "/ourBooks"), function (snapshot) {
+  allBooks.innerHTML = "";
+  snapshot.forEach((childSnapshot) => {
+    const bookData = childSnapshot.val();
+    updateTableWithBook(bookData, snapshot);
+  });
+});
+
+onValue(ref(db, "/bestseller"), function (snapshot) {
+  bestsellerbooks.innerHTML = "";
+  snapshot.forEach((childSnapshot) => {
+    const bookData = childSnapshot.val();
+    updateTableWithBook(bookData, snapshot);
+  });
+});
+
+onValue(ref(db, "/new"), function (snapshot) {
+  newbooks.innerHTML = "";
+  snapshot.forEach((childSnapshot) => {
+    const bookData = childSnapshot.val();
+    updateTableWithBook(bookData, snapshot);
+  });
+});

@@ -1,4 +1,21 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getDatabase, ref, query, orderByChild, equalTo, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyAOldxszY5NokTC-9GJHYL6CS2xUHs6JuY",
+    authDomain: "book-platform-92fc8.firebaseapp.com",
+    projectId: "book-platform-92fc8",
+    storageBucket: "book-platform-92fc8.appspot.com",
+    messagingSenderId: "844344224692",
+    appId: "1:844344224692:web:bb2fb3fba3f235a1b320e1",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db = getDatabase(app);
 
 document.querySelector(".joinUsBtn").addEventListener("click", function () {
     document.querySelector(".joinUsSection").style.display = "flex";
@@ -19,117 +36,105 @@ document.addEventListener("click", function (e) {
 });
 
 
-// https://www.googleapis.com/books/v1/volumes?q=${bookName}
 
-function fetchBooks(bookName) {
-    fetch(`https://www.googleapis.com/books/v1/volumes?q=${bookName}`)
-    .then(response => response.json())
-    .then(data => {
+
+async function fetchBooks(bookName) {
+    const booksRef = ref(db, 'ourBooks');
+    console.log('Searching for:', bookName);
+
+    try {
+        const snapshot = await get(booksRef);
+        const data = snapshot.val();
+        
+        console.log('Data fetched:', data);
+        
+        if (!data) {
+            console.log('No books found in the database.');
+            return;
+        }
+
+        const filteredData = Object.values(data).filter(item => 
+            item.bookTitle.toLowerCase().includes(bookName.toLowerCase())
+        );
+
         const booksContainer = document.querySelector('.swiper-wrapper');
-        booksContainer.innerHTML = ''; 
+        booksContainer.innerHTML = '';
 
-
-        data.items.forEach(item => {
-            const book = document.createElement('div');
-            book.classList.add('swiper-slide');
-            book.style.height = "400px"
-            book.style.width = "700px !important"
-            book.style.display = "flex";
-            book.style.flexDirection = "row"
-            book.style.backgroundColor="rgba(255, 255, 255, 1)"
-            book.style.border = "solid 1px"
-            book.style.borderColor = "rgba(0, 0, 0, 0.25)"
-            book.style.flexWrap = "nowrap"
-            
-
-            const img = document.createElement('img');
-            img.src = item.volumeInfo.imageLinks.thumbnail; 
-            img.alt = item.volumeInfo.title;
-            img.style.width = "240px"
-            img.style.height = "320px"
-            img.style.paddingTop = "40px"
-            img.style.paddingLeft = "20px"
+        if (filteredData.length === 0) {
+            console.log('No books found matching the search term.');
+            return;
+        }
 
 
 
-            const textContainer = document.createElement('div');
-            textContainer.style.display = "flex";
-            textContainer.style.flexDirection = "column";
-            textContainer.style.width ="300px !important"
-            textContainer.style.paddingLeft = "20px"
-            
+        let booksHTML = '';
 
-            const title = document.createElement('h2');
-            title.textContent = item.volumeInfo.title;
-            title.style.fontWeight = "bold"
-            title.style.paddingTop = "35px"
-            
+        filteredData.forEach(item => {
+            booksHTML += `
+                <div class="swiper-slide" style="height: 400px; width: 300px; display: flex; flex-direction: row; background-color: rgba(255, 255, 255, 1); border: solid 1px; border-color: rgba(0, 0, 0, 0.25);">
+                                    <div>
+                        <img src="${item.bookImg || 'placeholder.jpg'}" alt="${item.bookTitle}" style="width: 230px; height: 300px; padding-top: 40px; padding-left: 20px; padding-bottom: 20px">
+                    </div>
+                    <div style="display: flex; flex-direction: column; width: 300px; padding-left: 20px;">
+                        <h2 style="font-weight: bold; padding-top: 35px; width: 400px;">${item.bookTitle}</h2>
+                        <h4 style="font-family: Montserrat; font-size: 18px; font-weight: 400; line-height: 35.31px; text-align: left;">${item.bookAuthor || 'Unknown'}</h4>
+                        <p style="height: 200px; margin-top: 30px; width: 500px; overflow-y: auto;">${item.bookdesc || 'No description available'}</p>
+                    </div>
+                </div>
 
-
-
-            const author = document.createElement('h4');
-            author.textContent = item.volumeInfo.authors[0]; 
-            author.style.fontFamily = "Montserrat";
-            author.style.fontSize = "18px";
-            author.style.fontWeight = "400";
-            author.style.lineHeight = "35.31px";
-            author.style.textAlign = "left";
-
-
-
-            const description = document.createElement('p');
-            description.textContent = item.volumeInfo.description;
-            description.style.height = "200px !important"
-            description.style.marginTop = "70px"
-            description.style.width = "500px"
-            description.style.overflowY = "auto"
-
-
-            textContainer.appendChild(title);
-            textContainer.appendChild(author);
-            textContainer.appendChild(description);
-
-            book.appendChild(img);
-
-            booksContainer.appendChild(book);
-            book.appendChild(textContainer)
-            
-
+            `;
         });
 
-        
-        const swiper = new Swiper('.swiper', {
-            loop: true, // Looping through slides
+        booksContainer.innerHTML = booksHTML;
+
+        new Swiper('.swiper', {
+            loop: true,
             navigation: {
                 nextEl: '.swiper-button-next',
                 prevEl: '.swiper-button-prev',
-                
-        }}); 
-    })
-    .catch(error => {
-        console.error('Error fetching books:', error);
-    });
+            }
+        });
+    } catch (error) {
+        console.error('Error fetching books from database:', error);
+    }
 }
 
 
-document.querySelector(".search button").addEventListener("click", function() {
-    const searchTerm = document.querySelector(".search input").value;
+
+function debounce(func, wait) {
+    let timeout;
+    return function(...args) {
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+}
+
+const searchInput = document.querySelector(".search input");
+const searchButton = document.querySelector(".search button");
+
+searchButton.addEventListener("click", function() {
+    const searchTerm = searchInput.value;
+    console.log('Search term:', searchTerm);
     fetchBooks(searchTerm);
 });
+
+searchInput.addEventListener("keyup", debounce(function() {
+    const searchTerm = searchInput.value;
+    console.log('Search term:', searchTerm);
+    fetchBooks(searchTerm);
+}, 300));
 
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const swiper = new Swiper('.swiper', {
-        // Optional parameters
-        loop: true, // Looping through slides
+    new Swiper('.swiper', {
+        loop: true,
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
         },
     });
 });
-
 
 
 

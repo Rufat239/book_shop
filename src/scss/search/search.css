@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(255, 250, 245);
+    background-color:rgba(255, 250, 245, 1) ;
     font-family: Montserrat;
     position: relative;
     height: 100%;
@@ -293,21 +293,8 @@ body {
     display: flex;
     flex-direction: column !important;
 
-}
+} 
 
-.description {
-    max-width: calc(100% - 340px) !important;
-    height: 200px;
-    overflow-y: auto;
-    margin-top: 10px;
-    direction: ltr;
-    font-family: Montserrat;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 27.47px;
-    text-align: left;
-
-}
 
 
 
@@ -356,6 +343,7 @@ body {
     color: rgba(114, 4, 24, 1) !important;
     margin-top: 60px !important;
     display: block !important;
+    
 
 
 }

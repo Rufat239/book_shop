@@ -1,9 +1,12 @@
-function open() {
-  document.querySelector(".downloadingImg").style.display = "none";
-  document.querySelector(".main").style.opacity = "1";
-}
+import db from './firebase.mjs'
+import {get,set,ref,onValue,push} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"
 
-setTimeout(open, 2000);
+// function open() {
+//   document.querySelector(".downloadingImg").style.display = "none";
+//   document.querySelector(".main").style.opacity = "1";
+// }
+
+// setTimeout(open, 2000);
 
 document.querySelector(".joinUsBtn").addEventListener("click", function () {
   document.querySelector(".joinUsSection").style.display = "flex";
@@ -30,7 +33,7 @@ function open() {
 // Modal Window Functionality
 
 const nameInput = document.querySelector("#name");
-const surNameInput = document.querySelector("#surname");
+const adressInput = document.querySelector("#surname");
 const emailInput = document.querySelector("#email");
 const phoneInput = document.querySelector("#phone");
 const send = document.querySelector(".sendBtn");
@@ -55,8 +58,10 @@ function checkUser() {
     infoImg.innerHTML = `<img src="../img/contact/succes.jpg" alt="">`;
     infoMsg.innerHTML = ` <br /> <p class="default-msg">Müraciətiniz göndərildi! Təşəkkür edirik!</p>`;
     infoTitle.textContent = "GÖNDƏRİLDİ !";
+  addInputs()
+
     nameInput.value = "";
-    surNameInput.value = "";
+    adressInput.value = "";
     emailInput.value = "";
     phoneInput.value = "";
     text.value = "";
@@ -64,7 +69,22 @@ function checkUser() {
     emailInput.style.border = "";
     send.setAttribute("data-toggle", "modal");
     send.setAttribute("data-target", "#exampleModal");
+
   }
 }
 
+
+
+function addInputs(){
+  let obj={
+    name:nameInput.value,
+    adress:adressInput.value,
+    phone:phoneInput.value,
+    email:emailInput.value,
+    text:text.value
+  }
+  set(push(ref(db,'/contact')),obj)
+  }
+
 send.addEventListener("click", checkUser);
+

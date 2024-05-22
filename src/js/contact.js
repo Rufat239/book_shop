@@ -1,12 +1,7 @@
 import db from './firebase.mjs'
 import {get,set,ref,onValue,push} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"
 
-// function open() {
-//   document.querySelector(".downloadingImg").style.display = "none";
-//   document.querySelector(".main").style.opacity = "1";
-// }
 
-// setTimeout(open, 2000);
 
 document.querySelector(".joinUsBtn").addEventListener("click", function () {
   document.querySelector(".joinUsSection").style.display = "flex";
@@ -25,10 +20,7 @@ document.addEventListener("click", function (e) {
   }
 });
 
-function open() {
-  document.querySelector(".downloadingImg").style.display = "none";
-  document.querySelector(".main").style.opacity = "1";
-}
+
 
 // Modal Window Functionality
 

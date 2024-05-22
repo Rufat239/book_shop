@@ -67,11 +67,9 @@ function truncateText(text, maxLength) {
   return text;
 }
 
-function updateTableWithBook(bookData, snapshot) {
+function updateTableWithBook(bookData, bookId) {
   const truncatedTitle = truncateText(bookData.bookTitle, 20);
   const truncatedAuthor = truncateText(bookData.bookAuthor, 20);
-  const bookId = snapshot.id;
-  console.log(bookId);
 
   allBooks.innerHTML += `
     <div class="swiper-slide">
@@ -79,7 +77,7 @@ function updateTableWithBook(bookData, snapshot) {
         <img src="${bookData.bookImg}" alt="" />
         <h3>${truncatedTitle}</h3>
         <p>${truncatedAuthor}</p>
-        <button><a href="../pages/bookpage.html?${bookId}">ReadMore</a></button>
+        <button><a href="../pages/bookpage.html?${bookId}">READ MORE</a></button>
       </div>
     </div>
   `;
@@ -89,7 +87,7 @@ function updateTableWithBook(bookData, snapshot) {
         <img src="${bookData.bookImg}" alt="" />
         <h3>${truncatedTitle}</h3>
         <p>${truncatedAuthor}</p>
-        <a href="../pages/bookpage.html?${bookId}"><button>Read more</button></a>
+         <button><a href="../pages/bookpage.html?${bookId}">READ MORE</a></button>
       </div>
     </div>
   `;
@@ -100,7 +98,7 @@ function updateTableWithBook(bookData, snapshot) {
         <img src="${bookData.bookImg}" alt="" />
         <h3>${truncatedTitle}</h3>
         <p>${truncatedAuthor}</p>
-        <a href="../pages/bookpage.html?${bookId}"><button>Read more</button></a>
+        <button><a href="../pages/bookpage.html?${bookId}">READ MORE</a></button>
       </div>
     </div>
   `;
@@ -110,7 +108,8 @@ onValue(ref(db, "/ourBooks"), function (snapshot) {
   allBooks.innerHTML = "";
   snapshot.forEach((childSnapshot) => {
     const bookData = childSnapshot.val();
-    updateTableWithBook(bookData, snapshot);
+    const bookId = childSnapshot.key;
+    updateTableWithBook(bookData, bookId);
   });
 });
 
@@ -118,7 +117,8 @@ onValue(ref(db, "/bestseller"), function (snapshot) {
   bestsellerbooks.innerHTML = "";
   snapshot.forEach((childSnapshot) => {
     const bookData = childSnapshot.val();
-    updateTableWithBook(bookData, snapshot);
+    const bookId = childSnapshot.key;
+    updateTableWithBook(bookData, bookId);
   });
 });
 
@@ -126,6 +126,7 @@ onValue(ref(db, "/new"), function (snapshot) {
   newbooks.innerHTML = "";
   snapshot.forEach((childSnapshot) => {
     const bookData = childSnapshot.val();
-    updateTableWithBook(bookData, snapshot);
+    const bookId = childSnapshot.key;
+    updateTableWithBook(bookData, bookId);
   });
 });

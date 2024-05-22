@@ -122,13 +122,16 @@ body .header .header-list li a:nth-child(3):hover {
   background: var(--2, #e16a00);
   box-shadow: 0px 3px 8px 0px rgba(225, 106, 0, 0.19);
   padding: 10px 28px;
+}
+.all-books .swiper-slide .book button a {
   color: #fff;
   font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
   font-weight: 900;
-  line-height: 196.187%; /* 23.542px */
+  line-height: 196.187%;
   text-transform: uppercase;
+  text-decoration: none;
 }
 .all-books .swiper-slide .book span {
   position: absolute;
@@ -221,13 +224,16 @@ body .header .header-list li a:nth-child(3):hover {
   background: var(--2, #e16a00);
   box-shadow: 0px 3px 8px 0px rgba(225, 106, 0, 0.19);
   padding: 10px 28px;
+}
+.bestseller .swiper-slide .book button a {
   color: #fff;
   font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
   font-weight: 900;
-  line-height: 196.187%; /* 23.542px */
+  line-height: 196.187%;
   text-transform: uppercase;
+  text-decoration: none;
 }
 .bestseller .swiper-slide .book span {
   position: absolute;
@@ -320,13 +326,16 @@ body .header .header-list li a:nth-child(3):hover {
   background: var(--2, #e16a00);
   box-shadow: 0px 3px 8px 0px rgba(225, 106, 0, 0.19);
   padding: 10px 28px;
+}
+.newrealeses .swiper-slide .book button a {
   color: #fff;
   font-family: Montserrat;
   font-size: 12px;
   font-style: normal;
   font-weight: 900;
-  line-height: 196.187%; /* 23.542px */
+  line-height: 196.187%;
   text-transform: uppercase;
+  text-decoration: none;
 }
 .newrealeses .swiper-slide .book span {
   position: absolute;

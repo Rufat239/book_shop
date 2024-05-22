@@ -29,9 +29,6 @@ import {
 const bookId = window.location.search.substring(1);
 
 const selectedBook = document.querySelector(".div-1");
-const bookTitle = document.querySelector(".h11");
-const bookAuthor = document.querySelector(".p2");
-const bookDescription = document.querySelector(".p3");
 
 onValue(ref(db, `/ourBooks/${bookId}`), function (snapshot) {
   const bookData = snapshot.val();
@@ -46,9 +43,95 @@ onValue(ref(db, `/ourBooks/${bookId}`), function (snapshot) {
               <h6 class="h66">2 days ago added</h6>
               <p class="p2">${bookData.bookAuthor}</p>
 
-              <p class="p3">${bookData.bookDescription}
+              <p class="p3">${bookData.bookdesc}
               </p>
             </div>
           </div>
+  `;
+});
+
+onValue(ref(db, `/ourBooks/${bookId}`), function (snapshot) {
+  const bookData = snapshot.val();
+
+  selectedBook.innerHTML = `
+        <div class="div-1">
+          <div class="div-2">
+            <div class="div-4">
+              <div class="div-p">
+                <p class="p1">2017</p>
+              </div>
+              <h1 class="h11">${bookData.bookTitle}</h1>
+              <h6 class="h66">2 days ago added</h6>
+              <p class="p2">${bookData.bookAuthor}</p>
+
+              <p class="p3">${bookData.bookdesc}
+              </p>
+            </div>
+          </div>
+
+          <div class="imgbook">
+            <div class="new">
+              <p>NEW</p>
+            </div>
+            <img src="${bookData.bookImg}" alt="" class="img1" />
+          </div>
+        </div>
+  `;
+});
+onValue(ref(db, `/bestseller/${bookId}`), function (snapshot) {
+  const bookData = snapshot.val();
+
+  selectedBook.innerHTML = `
+        <div class="div-1">
+          <div class="div-2">
+            <div class="div-4">
+              <div class="div-p">
+                <p class="p1">2017</p>
+              </div>
+              <h1 class="h11">${bookData.bookTitle}</h1>
+              <h6 class="h66">2 days ago added</h6>
+              <p class="p2">${bookData.bookAuthor}</p>
+
+              <p class="p3">${bookData.bookdesc}
+              </p>
+            </div>
+          </div>
+
+          <div class="imgbook">
+            <div class="new">
+              <p>NEW</p>
+            </div>
+            <img src="${bookData.bookImg}" alt="" class="img1" />
+          </div>
+        </div>
+  `;
+});
+
+onValue(ref(db, `/new/${bookId}`), function (snapshot) {
+  const bookData = snapshot.val();
+
+  selectedBook.innerHTML = `
+        <div class="div-1">
+          <div class="div-2">
+            <div class="div-4">
+              <div class="div-p">
+                <p class="p1">2017</p>
+              </div>
+              <h1 class="h11">${bookData.bookTitle}</h1>
+              <h6 class="h66">2 days ago added</h6>
+              <p class="p2">${bookData.bookAuthor}</p>
+
+              <p class="p3">${bookData.bookdesc}
+              </p>
+            </div>
+          </div>
+
+          <div class="imgbook">
+            <div class="new">
+              <p>NEW</p>
+            </div>
+            <img src="${bookData.bookImg}" alt="" class="img1" />
+          </div>
+        </div>
   `;
 });

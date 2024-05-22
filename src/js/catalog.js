@@ -58,8 +58,8 @@ const bestsellerbooks = document.querySelector(".bestsellerbooks");
 const newbooks = document.querySelector(".newbooks");
 
 function truncateText(text, maxLength) {
-  if (text === "undefined" || text === null) {
-    text = "No Info in Database";
+  if (!text || text === "undefined" || text === null) {
+    return "No Info in Database";
   }
   if (text.length > maxLength) {
     return text.slice(0, maxLength) + "...";
@@ -67,34 +67,13 @@ function truncateText(text, maxLength) {
   return text;
 }
 
-function updateTableWithBook(bookData, bookId) {
+function updateTableWithBook(container, bookData, bookId) {
   const truncatedTitle = truncateText(bookData.bookTitle, 20);
   const truncatedAuthor = truncateText(bookData.bookAuthor, 20);
 
-  allBooks.innerHTML += `
+  container.innerHTML += `
     <div class="swiper-slide">
       <div class="book">
-        <img src="${bookData.bookImg}" alt="" />
-        <h3>${truncatedTitle}</h3>
-        <p>${truncatedAuthor}</p>
-        <button><a href="../pages/bookpage.html?${bookId}">READ MORE</a></button>
-      </div>
-    </div>
-  `;
-  bestsellerbooks.innerHTML += `
-    <div class="swiper-slide">
-      <div class="book">
-        <img src="${bookData.bookImg}" alt="" />
-        <h3>${truncatedTitle}</h3>
-        <p>${truncatedAuthor}</p>
-         <button><a href="../pages/bookpage.html?${bookId}">READ MORE</a></button>
-      </div>
-    </div>
-  `;
-  newbooks.innerHTML += `
-    <div class="swiper-slide">
-      <div class="book">
-        <span>NEW</span>
         <img src="${bookData.bookImg}" alt="" />
         <h3>${truncatedTitle}</h3>
         <p>${truncatedAuthor}</p>
@@ -104,29 +83,17 @@ function updateTableWithBook(bookData, bookId) {
   `;
 }
 
-onValue(ref(db, "/ourBooks"), function (snapshot) {
-  allBooks.innerHTML = "";
-  snapshot.forEach((childSnapshot) => {
-    const bookData = childSnapshot.val();
-    const bookId = childSnapshot.key;
-    updateTableWithBook(bookData, bookId);
+function fetchBooksFromFirebase(reference, container) {
+  onValue(reference, function (snapshot) {
+    container.innerHTML = "";
+    snapshot.forEach((childSnapshot) => {
+      const bookData = childSnapshot.val();
+      const bookId = childSnapshot.key;
+      updateTableWithBook(container, bookData, bookId);
+    });
   });
-});
+}
 
-onValue(ref(db, "/bestseller"), function (snapshot) {
-  bestsellerbooks.innerHTML = "";
-  snapshot.forEach((childSnapshot) => {
-    const bookData = childSnapshot.val();
-    const bookId = childSnapshot.key;
-    updateTableWithBook(bookData, bookId);
-  });
-});
-
-onValue(ref(db, "/new"), function (snapshot) {
-  newbooks.innerHTML = "";
-  snapshot.forEach((childSnapshot) => {
-    const bookData = childSnapshot.val();
-    const bookId = childSnapshot.key;
-    updateTableWithBook(bookData, bookId);
-  });
-});
+fetchBooksFromFirebase(ref(db, "/ourBooks"), allBooks);
+fetchBooksFromFirebase(ref(db, "/bestseller"), bestsellerbooks);
+fetchBooksFromFirebase(ref(db, "/new"), newbooks);

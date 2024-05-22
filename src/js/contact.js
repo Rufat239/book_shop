@@ -1,5 +1,11 @@
-import db from './firebase.mjs'
-import {get,set,ref,onValue,push} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js"
+import db from "./firebase.mjs";
+import {
+  get,
+  set,
+  ref,
+  onValue,
+  push,
+} from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 // function open() {
 //   document.querySelector(".downloadingImg").style.display = "none";
@@ -58,7 +64,7 @@ function checkUser() {
     infoImg.innerHTML = `<img src="../img/contact/succes.jpg" alt="">`;
     infoMsg.innerHTML = ` <br /> <p class="default-msg">Müraciətiniz göndərildi! Təşəkkür edirik!</p>`;
     infoTitle.textContent = "GÖNDƏRİLDİ !";
-  addInputs()
+    addInputs();
 
     nameInput.value = "";
     adressInput.value = "";
@@ -69,22 +75,18 @@ function checkUser() {
     emailInput.style.border = "";
     send.setAttribute("data-toggle", "modal");
     send.setAttribute("data-target", "#exampleModal");
-
   }
 }
 
-
-
-function addInputs(){
-  let obj={
-    name:nameInput.value,
-    adress:adressInput.value,
-    phone:phoneInput.value,
-    email:emailInput.value,
-    text:text.value
-  }
-  set(push(ref(db,'/contact')),obj)
-  }
+function addInputs() {
+  let obj = {
+    name: nameInput.value,
+    adress: adressInput.value,
+    phone: phoneInput.value,
+    email: emailInput.value,
+    text: text.value,
+  };
+  set(push(ref(db, "/contact")), obj);
+}
 
 send.addEventListener("click", checkUser);
-

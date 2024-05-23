@@ -189,7 +189,9 @@ body {
   margin-left: 100px;
 }
 .contactUs {
-  margin: 20px;
+  margin: 120px 0 20px 160px;
+  /* margin-top: 120px;
+  margin-left: 160px; */
 }
 
 .contactUs h1 {
@@ -227,7 +229,10 @@ body {
   color: red;
   font-weight: 700;
 }
-
+.forms{
+  text-align: center;
+  margin-bottom: 130px;
+}
 .input {
   background: #ffffff;
   width: 500px;

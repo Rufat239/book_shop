@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getDatabase, ref, query, orderByChild, equalTo, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+// import Swiper from 'https://unpkg.com/swiper/swiper-bundle.min.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -53,9 +54,14 @@ async function fetchBooks(bookName) {
             return;
         }
 
-        const filteredData = Object.values(data).filter(item => 
-            item.bookTitle.toLowerCase().includes(bookName.toLowerCase())
-        );
+        // const filteredData = Object.values(data).filter(item => 
+        //     item.bookTitle.toLowerCase().includes(bookName.toLowerCase())
+        // );
+
+        const filteredData = Object.values(data).filter(item => {
+            return item.bookTitle && item.bookTitle.toLowerCase().includes(bookName.toLowerCase());
+        });
+
 
         const booksContainer = document.querySelector('.swiper-wrapper');
         booksContainer.innerHTML = '';
@@ -71,7 +77,7 @@ async function fetchBooks(bookName) {
 
         filteredData.forEach(item => {
             booksHTML += `
-                <div class="swiper-slide" style="height: 400px; width: 300px; display: flex; flex-direction: row; background-color: rgba(255, 255, 255, 1); border: solid 1px; border-color: rgba(0, 0, 0, 0.25);">
+                <div class="swiper-slide" style="height: 300px; width: 700px; display: flex; flex-direction: row; background-color: rgba(255, 255, 255, 1); border: solid 1px; border-color: rgba(0, 0, 0, 0.25);box-shadow: 15px 15px 15px 15px rgba(0, 0, 0, 0.25);">
                                     <div>
                         <img src="${item.bookImg || 'placeholder.jpg'}" alt="${item.bookTitle}" style="width: 230px; height: 300px; padding-top: 40px; padding-left: 20px; padding-bottom: 20px">
                     </div>
@@ -87,18 +93,36 @@ async function fetchBooks(bookName) {
 
         booksContainer.innerHTML = booksHTML;
 
-        new Swiper('.swiper', {
-            loop: true,
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            }
-        });
-    } catch (error) {
-        console.error('Error fetching books from database:', error);
-    }
-}
+//         new Swiper('.swiper', {
+//             loop: true,
+//             navigation: {
+//                 nextEl: '.swiper-button-next',
+//                 prevEl: '.swiper-button-prev',
+//             }
+//         });
+//     } catch (error) {
+//         console.error('Error fetching books from database:', error);
+//     }
+// }
+const swiperConfig = {
+    loop: filteredData.length >= 3, // Используем loop только если слайдов 3 или больше
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+};
 
+new Swiper('.swiper', swiperConfig);
+
+console.log('Swiper initialized with config:', swiperConfig);
+} catch (error) {
+console.error('Error fetching books from database:', error);
+}
+}
 
 
 function debounce(func, wait) {
@@ -132,6 +156,10 @@ document.addEventListener("DOMContentLoaded", function () {
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
         },
     });
 });

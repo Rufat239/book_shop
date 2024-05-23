@@ -130,18 +130,23 @@
           <th>Actions</th>
         </tr>
         <tbody id="adminKitabSiyahi"></tbody>
-        <!-- <tr>
-            <td>1</td>
-            <td><img src="../../image/image 8.svg" alt="" />Angels</td>
-            <td>Lorem ipsum test...</td>
-            <td>Dedectiv</td>
-            <td>Dan Brown</td>
+        <template class="rowTemp">
+          <tr>
+            <td class="listNum">1</td>
+            <td><img class="bookImg" src="../../image/image 8.svg" alt="" />
+              <h5 class="bookName">Angels</h5>
+            </td>
+            <td class="bookDesc">Lorem ipsum test...</td>
+            <td class="category">Dedectiv</td>
+            <td class="author">Dan Brown</td>
             <td>
               <button class="deleteBookBtn">
                 <i class="fa-solid fa-trash-can"></i>
               </button>
             </td>
-          </tr> -->
+          </tr>
+        </template>
+        <!-- <button></button> -->
       </table>
     </div>
     <div id="contact" class="contactUs">
@@ -189,7 +194,10 @@
     </div>
   </div>
 
+
+
   <script type="module" src="../../js/admin.js"></script>
+
 </body>
 
 </html>

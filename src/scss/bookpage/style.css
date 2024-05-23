@@ -34,17 +34,6 @@ body {
   color: rgb(225, 106, 0);
 }
 
-.header-list li:nth-child(3) a {
-  color: rgb(225, 106, 0);
-  font-weight: 700;
-  text-decoration-line: underline;
-}
-
-.header-list li:nth-child(3) a:hover {
-  color: #000;
-  text-decoration: none;
-}
-
 /* ~~~~main~~~ */
 
 .joinUsSection {

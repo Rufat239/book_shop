@@ -617,6 +617,11 @@ body {
   .new {
     left: 81.75%;
   }
+
+  .div-2 {
+    width: 100%;
+  }
+
   .div-7 {
     display: none;
   }

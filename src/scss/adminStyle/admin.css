@@ -5,7 +5,6 @@ body {
 body .adminPage_left {
   background-color: #720418;
   width: 20%;
-  height: 500vh;
   padding: 2%;
 }
 body .adminPage_left .leftLogoX {
@@ -250,7 +249,7 @@ body .adminPage_right .books table tr:nth-child(even) {
 body .adminPage_right .books table td {
   text-align: center;
   padding: 8px;
-  height: 44px;
+  height: 88px;
   font-size: 14px;
   font-weight: 400;
 }
@@ -518,4 +517,11 @@ body .adminPage_right .contactUs table th {
     font-size: 8px;
     font-weight: 400;
   }
+}
+.bookDesc {
+  margin: 30px 0 0 0;
+  max-height: 70%;
+  overflow-y: auto;
+  display: block;
+  word-wrap: break-word;
 }/*# sourceMappingURL=admin.css.map */

@@ -95,12 +95,14 @@ onValue(ref(db, "/ourBooks"), function (snapshot) {
 addBtn.addEventListener("click", function () {
   const selectedRadio = document.querySelector('input[name="x"]:checked');
 
-  const addingBook = {
+  const timeSpam = new Date().toDateString();
+  const addingBook = { 
     bookTitle: title.value,
     bookAuthor: authorName.value,
     bookImg: bookImageUrl.value,
     bookdesc: description.value,
     bookcategory: bookType.value,
+    addedAt:timeSpam
   };
 
   const newBookRef = push(ref(db, "/ourBooks"));
@@ -119,7 +121,6 @@ function updateTableWithBook(bookData, index, bookKey) {
 
   const td1 = row.querySelector(".listNum");
   const img = row.querySelector(".bookImg");
-
   const td3 = row.querySelector(".bookDesc");
   const td4 = row.querySelector(".category");
   const td5 = row.querySelector(".author");
@@ -130,14 +131,17 @@ function updateTableWithBook(bookData, index, bookKey) {
   button.addEventListener("click", () => {
     deleteBook(bookKey);
   });
+
   img.src = bookData.bookImg;
   td1.textContent = index;
-  td3.textContent = bookData.bookdesc;
+  td3.textContent = bookData.bookdesc; 
   td4.textContent = bookData.bookcategory;
   td5.textContent = bookData.bookAuthor;
   td6.textContent = bookData.bookTitle;
+
   admininsiyahisi.append(row);
 }
+
 function deleteBook(bookKey) {
   const bookRef = ref(db, `ourBooks/${bookKey}`);
   remove(bookRef)
@@ -181,3 +185,26 @@ function addAboutStore() {
 }
 
 aboutAddBtn.addEventListener("click", addAboutStore);
+
+
+const contactTable=document.querySelector('#contactTable')
+let index=0
+onValue(ref(db,'/contact'),(x)=>{
+  
+x.forEach((((objects)=>{
+  index++
+  const tr=document.createElement('tr')
+  const element=objects.val()
+  
+  console.log(element);
+tr.innerHTML=`
+<td>${index}</td>
+<td>${element.name}</td>
+<td>${element.adress}</td>
+<td>${element.email}</td>
+<td>${element.phone}</td>
+<td>${element.text}</td>
+`
+contactTable.appendChild(tr)
+})))
+})

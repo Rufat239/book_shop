@@ -196,7 +196,6 @@ x.forEach((((objects)=>{
   const tr=document.createElement('tr')
   const element=objects.val()
   
-  console.log(element);
 tr.innerHTML=`
 <td>${index}</td>
 <td>${element.name}</td>
@@ -207,4 +206,22 @@ tr.innerHTML=`
 `
 contactTable.appendChild(tr)
 })))
+})
+
+
+const joinTable=document.querySelector('#joinTable')
+let joinIndex=0
+onValue(ref(db,'/joinus'),(e)=>{
+  e.forEach(object=>{
+joinIndex++
+const tr=document.createElement('tr')
+const element=object.val()
+
+tr.innerHTML=`
+<td>${joinIndex}</td>
+<td>${element.fullname}</td>
+<td>${element.email}</td>
+`
+joinTable.appendChild(tr)
+  })
 })

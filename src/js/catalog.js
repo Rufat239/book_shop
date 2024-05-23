@@ -10,16 +10,16 @@ document.querySelector(".joinUsBtn").addEventListener("click", function () {
   document.body.style.overflow = "hidden";
 });
 
-document.addEventListener("click", function (e) {
-  const joinUsSection = document.querySelector(".joinUsSection");
-  const joinUs = document.querySelector(".joinUs");
-  const joinUsBtn = document.querySelector(".joinUsBtn");
+// document.addEventListener("click", function (e) {
+//   const joinUsSection = document.querySelector(".joinUsSection");
+//   const joinUs = document.querySelector(".joinUs");
+//   const joinUsBtn = document.querySelector(".joinUsBtn");
 
-  if (!joinUsBtn.contains(e.target) && !joinUs.contains(e.target)) {
-    joinUsSection.style.display = "none";
-    document.body.style.overflow = "auto";
-  }
-});
+//   if (!joinUsBtn.contains(e.target) && !joinUs.contains(e.target)) {
+//     joinUsSection.style.display = "none";
+//     document.body.style.overflow = "auto";
+//   }
+// });
 
 // Swiper
 

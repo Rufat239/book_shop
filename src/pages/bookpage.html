@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../scss/bookpage/style.css" />
     <title>Book Page</title>
   </head>
+
   <body>
     <header class="header container-fluid">
       <nav class="navbar navbar-expand-lg main-menu">
@@ -101,8 +102,13 @@
       </div>
     </section>
 
-    <main>
-      <div>
+    <main class="bookpage-main">
+      <section class="book-about">
+        <div class="box-left"></div>
+        <div class="box-right"></div>
+      </section>
+
+      <div class="container">
         <a href="../pages/catalog.html">
           <button class="btn-1">< Back</button>
         </a>
@@ -136,19 +142,21 @@
           </div>
         </div>
         <div class="div-5">
-          <div class="inpu-11">
-            <div>
+          <div class="inpu-11 glow-on-hover">
+            <div class="input-box">
               <input
                 type="text"
                 name=""
-                id=""
+                id="comment"
                 placeholder="your anonim comment..."
-                class="input-1" /><button class="btn-2">
+                class="input-1" />
+              <button class="btn-2">
                 <img src="../img/bookpage/button.svg" alt="" />
               </button>
             </div>
           </div>
-          <div class="div-7">
+          <div class="comments">
+          <!-- <div class="div-7 glow-on-hover">
             <div class="div-78">
               <h6 class="div-77">anonim</h6>
               <p class="div-80">18:32 today</p>
@@ -159,8 +167,10 @@
               soon. Perhaps you can give me an insight on where I can learn
               React? Thanks!
             </p>
+          </div> -->
+          <!-- <div class="div-8 glow-on-hover">
           </div>
-          <div class="div-8">
+
             <div class="div-90">
               <h5 class="div-77">anonim</h5>
               <p class="div-80">2 days agao</p>
@@ -169,7 +179,7 @@
               Woah, your project looks awesome! How long have you been coding
               for? I’m still new, but think I want to dive into
             </p>
-          </div>
+          </div> -->
         </div>
       </div>
     </main>

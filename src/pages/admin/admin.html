@@ -120,6 +120,7 @@
 
     <div id="bookss" class="books">
       <h3>Books</h3>
+     <div style="max-height: 300px; overflow-y: scroll;">
       <table>
         <tr>
           <th>#</th>
@@ -130,66 +131,76 @@
           <th>Actions</th>
         </tr>
         <tbody id="adminKitabSiyahi"></tbody>
-        <!-- <tr>
-            <td>1</td>
-            <td><img src="../../image/image 8.svg" alt="" />Angels</td>
-            <td>Lorem ipsum test...</td>
-            <td>Dedectiv</td>
-            <td>Dan Brown</td>
+        <template class="rowTemp">
+          <tr>
+            <td class="listNum">1</td>
+            <td><img class="bookImg" src="../../image/image 8.svg" alt="" />
+              <h5 class="bookName">Angels</h5>
+            </td>
+            <td class="bookDesc">Lorem ipsum test...</td>
+            <td class="category">Dedectiv</td>
+            <td class="author">Dan Brown</td>
             <td>
               <button class="deleteBookBtn">
                 <i class="fa-solid fa-trash-can"></i>
               </button>
             </td>
-          </tr> -->
+          </tr>
+        </template>
+        <!-- <button></button> -->
       </table>
+     </div>
     </div>
     <div id="contact" class="contactUs">
       <h3>Contact Us</h3>
-      <table>
+      <table id="contactTable">
         <tr>
           <th>#</th>
           <th>Full Name</th>
           <th>Address</th>
           <th>Email Address</th>
           <th>Phone Number</th>
+          <th>Note</th>
         </tr>
-        <tr>
+        <!-- <tr>
           <td>1</td>
           <td>Audrey Mckinney</td>
           <td>1473 Ranchview Dr undefined San Jose</td>
           <td>lisa.watson@example.com</td>
           <td>(209) 555-0104</td>
-        </tr>
+        </tr> -->
 
-        <tr>
+        <!-- <tr>
           <td>1</td>
           <td>Savannah Howard</td>
           <td>8445 Railroad St undefined Tampa</td>
           <td>jeff.brown@example.com</td>
           <td>(201) 555-0124</td>
-        </tr>
+        </tr> -->
 
-        <tr>
+        <!-- <tr>
           <td>1</td>
           <td>Morris Cooper</td>
           <td>8584 W Sherman Dr undefined Desoto</td>
           <td>terra.hamilton@example.com</td>
           <td>(505) 555-0125</td>
-        </tr>
+        </tr> -->
 
-        <tr>
+        <!-- <tr>
           <td>1</td>
           <td>Victoria Lane</td>
           <td>1921 Ranchview Dr undefined San Francisco</td>
           <td>deanna.curtis@example.com</td>
           <td>(704) 555-0127</td>
-        </tr>
+        </tr> -->
       </table>
     </div>
   </div>
 
+
+
   <script type="module" src="../../js/admin.js"></script>
+
 </body>
 
 </html>

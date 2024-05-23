@@ -46,7 +46,6 @@ function addingMainSection(data) {
     const bookElement = document.createElement("div");
     bookElement.innerHTML = `<p style="cursor: pointer;"><strong>Title:</strong> ${element.volumeInfo.title}</p>`;
     bookElement.addEventListener("click", function () {
-      // console.log(element.volumeInfo.title);
       title.value = element.volumeInfo.title;
       authorName.value = element.volumeInfo.authors;
       bookImageUrl.value = element.volumeInfo.imageLinks.thumbnail;
@@ -74,6 +73,7 @@ import {
   ref,
   push,
   onValue,
+  remove,
 } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 
 const addBtn = document.querySelector(".addBtn");
@@ -87,19 +87,22 @@ onValue(ref(db, "/ourBooks"), function (snapshot) {
 
   snapshot.forEach((childSnapshot) => {
     const bookData = childSnapshot.val();
-    updateTableWithBook(bookData, index++);
+    const bookKey = childSnapshot.key;
+    updateTableWithBook(bookData, index++, bookKey);
   });
 });
 
 addBtn.addEventListener("click", function () {
   const selectedRadio = document.querySelector('input[name="x"]:checked');
 
-  const addingBook = {
+  const timeSpam = new Date().toDateString();
+  const addingBook = { 
     bookTitle: title.value,
     bookAuthor: authorName.value,
     bookImg: bookImageUrl.value,
     bookdesc: description.value,
     bookcategory: bookType.value,
+    addedAt:timeSpam
   };
 
   const newBookRef = push(ref(db, "/ourBooks"));
@@ -112,19 +115,43 @@ addBtn.addEventListener("click", function () {
   set(categoryBookRef, addingBook);
 });
 
-function updateTableWithBook(bookData, index) {
-  admininsiyahisi.innerHTML += `
-    <tr>
-      <td>${index}</td>
-      <td><img src="${bookData.bookImg}" alt="" /> <br/>${bookData.bookTitle}</td>
-      <td>${bookData.bookdesc}</td>
-      <td>${bookData.bookcategory}</td>
-      <td>${bookData.bookAuthor}</td>
-      <td><button class="deleteBookBtn"><i class="fa-solid fa-trash-can"></i></button></td>
-    </tr>
-  `;
+function updateTableWithBook(bookData, index, bookKey) {
+  const row = document.querySelector(".rowTemp").content.cloneNode(true)
+    .children[0];
+
+  const td1 = row.querySelector(".listNum");
+  const img = row.querySelector(".bookImg");
+  const td3 = row.querySelector(".bookDesc");
+  const td4 = row.querySelector(".category");
+  const td5 = row.querySelector(".author");
+  const td6 = row.querySelector(".bookName");
+
+  const button = row.querySelector(".fa-trash-can");
+
+  button.addEventListener("click", () => {
+    deleteBook(bookKey);
+  });
+
+  img.src = bookData.bookImg;
+  td1.textContent = index;
+  td3.textContent = bookData.bookdesc; 
+  td4.textContent = bookData.bookcategory;
+  td5.textContent = bookData.bookAuthor;
+  td6.textContent = bookData.bookTitle;
+
+  admininsiyahisi.append(row);
 }
 
+function deleteBook(bookKey) {
+  const bookRef = ref(db, `ourBooks/${bookKey}`);
+  remove(bookRef)
+    .then(() => {
+      console.log("Book removed successfully");
+    })
+    .catch((error) => {
+      console.error("Error removing book: ", error);
+    });
+}
 function clearInputFields() {
   title.value = "";
   authorName.value = "";
@@ -158,3 +185,26 @@ function addAboutStore() {
 }
 
 aboutAddBtn.addEventListener("click", addAboutStore);
+
+
+const contactTable=document.querySelector('#contactTable')
+let index=0
+onValue(ref(db,'/contact'),(x)=>{
+  
+x.forEach((((objects)=>{
+  index++
+  const tr=document.createElement('tr')
+  const element=objects.val()
+  
+  console.log(element);
+tr.innerHTML=`
+<td>${index}</td>
+<td>${element.name}</td>
+<td>${element.adress}</td>
+<td>${element.email}</td>
+<td>${element.phone}</td>
+<td>${element.text}</td>
+`
+contactTable.appendChild(tr)
+})))
+})

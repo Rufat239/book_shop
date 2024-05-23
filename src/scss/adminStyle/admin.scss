@@ -4,7 +4,7 @@ body {
   .adminPage_left {
     background-color: #720418;
     width: 20%;
-    height: 500vh;
+    // height: 500vh;
     padding: 2%;
     // position: sticky;
     // top: 0;
@@ -287,7 +287,7 @@ body {
         td {
           text-align: center;
           padding: 8px;
-          height: 44px;
+          height: 88px;
           font-size: 14px;
           font-weight: 400;
           img {
@@ -607,4 +607,12 @@ body {
       }
     }
   }
+}
+
+.bookDesc {
+  margin: 30px 0 0 0;
+  max-height: 70%;
+  overflow-y: auto;
+  display: block;
+  word-wrap: break-word;
 }

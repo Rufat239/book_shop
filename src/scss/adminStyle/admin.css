@@ -5,7 +5,11 @@ body {
 body .adminPage_left {
   background-color: #720418;
   width: 20%;
+  height: 100vh;
   padding: 2%;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 body .adminPage_left .leftLogoX {
   display: flex;
@@ -21,6 +25,7 @@ body .adminPage_left .leftLogoX .xBtn {
   background-color: #720418;
   border: 0;
   height: 40px;
+  display: none;
 }
 body .adminPage_left .leftLogoX .xBtn .x {
   display: none;
@@ -32,6 +37,8 @@ body .adminPage_left .pages {
 body .adminPage_right {
   background-color: #fffaf5;
   width: 80%;
+  margin-left: 20%;
+  padding-left: 5%;
 }
 body .adminPage_right .logoHamburger {
   display: flex;
@@ -317,6 +324,8 @@ body .adminPage_right .contactUs table th {
     display: none;
     position: absolute;
     width: 100%;
+    height: 100%;
+    padding: 0;
   }
   body .adminPage_left .leftLogoX {
     display: flex;
@@ -331,6 +340,8 @@ body .adminPage_right .contactUs table th {
   }
   body .adminPage_right {
     width: 100%;
+    margin-left: 0;
+    padding: 2%;
   }
   body .adminPage_right .logoHamburger {
     width: 100%;

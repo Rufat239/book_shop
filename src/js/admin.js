@@ -13,10 +13,13 @@ const bookType = document.querySelector(".bookType");
 
 hamburgerBtn.addEventListener("click", function () {
   adminPage_left.style.display = "block";
+  adminPage_right.style.display = "none";
+  xBtn.style.display = "block";
 });
 
 xBtn.addEventListener("click", function () {
   adminPage_left.style.display = "none";
+  adminPage_right.style.display = "block";
 });
 
 async function getData(title) {
@@ -96,13 +99,13 @@ addBtn.addEventListener("click", function () {
   const selectedRadio = document.querySelector('input[name="x"]:checked');
 
   const timeSpam = new Date().toDateString();
-  const addingBook = { 
+  const addingBook = {
     bookTitle: title.value,
     bookAuthor: authorName.value,
     bookImg: bookImageUrl.value,
     bookdesc: description.value,
     bookcategory: bookType.value,
-    addedAt:timeSpam
+    addedAt: timeSpam,
   };
 
   const newBookRef = push(ref(db, "/ourBooks"));
@@ -134,7 +137,7 @@ function updateTableWithBook(bookData, index, bookKey) {
 
   img.src = bookData.bookImg;
   td1.textContent = index;
-  td3.textContent = bookData.bookdesc; 
+  td3.textContent = bookData.bookdesc;
   td4.textContent = bookData.bookcategory;
   td5.textContent = bookData.bookAuthor;
   td6.textContent = bookData.bookTitle;
@@ -186,42 +189,39 @@ function addAboutStore() {
 
 aboutAddBtn.addEventListener("click", addAboutStore);
 
+const contactTable = document.querySelector("#contactTable");
+let index = 0;
+onValue(ref(db, "/contact"), (x) => {
+  x.forEach((objects) => {
+    index++;
+    const tr = document.createElement("tr");
+    const element = objects.val();
 
-const contactTable=document.querySelector('#contactTable')
-let index=0
-onValue(ref(db,'/contact'),(x)=>{
-  
-x.forEach((((objects)=>{
-  index++
-  const tr=document.createElement('tr')
-  const element=objects.val()
-  
-tr.innerHTML=`
+    tr.innerHTML = `
 <td>${index}</td>
 <td>${element.name}</td>
 <td>${element.adress}</td>
 <td>${element.email}</td>
 <td>${element.phone}</td>
 <td>${element.text}</td>
-`
-contactTable.appendChild(tr)
-})))
-})
+`;
+    contactTable.appendChild(tr);
+  });
+});
 
+const joinTable = document.querySelector("#joinTable");
+let joinIndex = 0;
+onValue(ref(db, "/joinus"), (e) => {
+  e.forEach((object) => {
+    joinIndex++;
+    const tr = document.createElement("tr");
+    const element = object.val();
 
-const joinTable=document.querySelector('#joinTable')
-let joinIndex=0
-onValue(ref(db,'/joinus'),(e)=>{
-  e.forEach(object=>{
-joinIndex++
-const tr=document.createElement('tr')
-const element=object.val()
-
-tr.innerHTML=`
+    tr.innerHTML = `
 <td>${joinIndex}</td>
 <td>${element.fullname}</td>
 <td>${element.email}</td>
-`
-joinTable.appendChild(tr)
-  })
-})
+`;
+    joinTable.appendChild(tr);
+  });
+});

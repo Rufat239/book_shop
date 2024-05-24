@@ -85,6 +85,7 @@ body {
 .img-div img {
   width: 430px;
   height: 307px;
+  
 }
 
 .joinUsSection {
@@ -341,6 +342,7 @@ body {
     .about img {
       max-width: 100%;
       height: auto;
+      margin-top: 155px;
     }
 
     .about-div1 {
@@ -366,7 +368,7 @@ body {
   }
 
   .section-2 {
-    margin-top: 300px;
+    margin-top: 400px;
   }
 
   .section-2 p {

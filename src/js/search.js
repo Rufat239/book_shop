@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-import { getDatabase, ref, query, orderByChild, equalTo, get } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
+import { getDatabase, ref, query, orderByChild, equalTo, get,set,push,onValue } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-database.js";
 // import Swiper from 'https://unpkg.com/swiper/swiper-bundle.min.js';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -36,6 +36,46 @@ document.addEventListener("click", function (e) {
     }
 });
 
+
+function sendJoinUsToDatabase() {
+    document.querySelector(".joinSubmitBtn").addEventListener("click", function () {
+        const successAlert = document.querySelector(".alert-success");
+        successAlert.style.opacity = "1";
+        let name = document.querySelector(".nameInpJoinUs");
+        let email = document.querySelector(".emailInpJoinUs");
+        let message = document.querySelector(".messageInpJoinUs");
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (name.value.trim() !== "" && emailPattern.test(email.value)) {
+            // Show Bootstrap success alert
+            const info = {
+                email: email.value,
+                fullname: name.value,
+                message: message.value
+            }
+  
+            
+  
+         set(push(ref(db,'/joinus')),info)  
+            
+  
+            successAlert.style.display = "block";
+            name.value = "";
+            email.value = "";
+            message.value = "";
+  
+            // Hide the alert after a certain time
+            setTimeout(() => {
+                successAlert.style.opacity = "0";
+                document.querySelector(".joinUsSection").style.display = "none";
+            }, 3000);
+        }
+        else {
+            alert("Please write fullname and email!")
+        }
+    })
+  }
+  
+  sendJoinUsToDatabase();
 
 
 

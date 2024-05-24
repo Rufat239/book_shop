@@ -28,39 +28,39 @@ document.addEventListener("click", function (e) {
 
 function sendJoinUsToDatabase() {
   document.querySelector(".joinSubmitBtn").addEventListener("click", function () {
-      const successAlert = document.querySelector(".alert-success");
-      successAlert.style.opacity = "1";
-      let name = document.querySelector(".nameInpJoinUs");
-      let email = document.querySelector(".emailInpJoinUs");
-      let message = document.querySelector(".messageInpJoinUs");
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (name.value.trim() !== "" && emailPattern.test(email.value)) {
-          // Show Bootstrap success alert
-          const info = {
-              email: email.value,
-              fullname: name.value,
-              message: message.value
-          }
-
-          
-
-       set(push(ref(db,'/joinus')),info)  
-          
-
-          successAlert.style.display = "block";
-          name.value = "";
-          email.value = "";
-          message.value = "";
-
-          // Hide the alert after a certain time
-          setTimeout(() => {
-              successAlert.style.opacity = "0";
-              document.querySelector(".joinUsSection").style.display = "none";
-          }, 3000);
+    const successAlert = document.querySelector(".alert-success");
+    successAlert.style.opacity = "1";
+    let name = document.querySelector(".nameInpJoinUs");
+    let email = document.querySelector(".emailInpJoinUs");
+    let message = document.querySelector(".messageInpJoinUs");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (name.value.trim() !== "" && emailPattern.test(email.value)) {
+      // Show Bootstrap success alert
+      const info = {
+        email: email.value,
+        fullname: name.value,
+        message: message.value
       }
-      else {
-          alert("Please write fullname and email!")
-      }
+
+
+
+      set(push(ref(db, '/joinus')), info)
+
+
+      successAlert.style.display = "block";
+      name.value = "";
+      email.value = "";
+      message.value = "";
+
+      // Hide the alert after a certain time
+      setTimeout(() => {
+        successAlert.style.opacity = "0";
+        document.querySelector(".joinUsSection").style.display = "none";
+      }, 3000);
+    }
+    else {
+      alert("Please write fullname and email!")
+    }
   })
 }
 
@@ -77,9 +77,8 @@ const phoneInput = document.querySelector("#phone");
 const send = document.querySelector(".sendBtn");
 const text = document.querySelector("#textarea");
 
-const infoImg = document.querySelector(".warning-img");
-const infoMsg = document.querySelector(".warning-msg");
-const infoTitle = document.querySelector(".modal-title");
+
+const div = document.createElement('div')
 
 function checkUser() {
   if (!emailInput.value.includes("@")) {
@@ -93,9 +92,40 @@ function checkUser() {
     send.setAttribute("data-toggle", "modal");
     send.setAttribute("data-target", "#exampleModal");
   } else {
-    infoImg.innerHTML = `<img src="../img/contact/succes.jpg" alt="">`;
-    infoMsg.innerHTML = ` <br /> <p class="default-msg">Müraciətiniz göndərildi! Təşəkkür edirik!</p>`;
-    infoTitle.textContent = "GÖNDƏRİLDİ !";
+    const contact = document.querySelector('.contact')
+
+    div.innerHTML = `<div 
+class="modal fade" 
+id="exampleModal"
+tabindex="-1"
+role="dialog"
+aria-labelledby="exampleModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-body">
+<div class="warning-img">
+                <img src="../img/contact/succes.jpg" alt="" />
+              </div>
+<div class="warning-msg">
+              <br />
+              <p class="default-msg">Müraciətiniz göndərildi! Təşəkkür edirik!</p>
+            </div>
+</div>
+<div class="modal-footer">
+              <button
+                style="background-color: #e16a00; border: none"
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal">
+                Oldu
+              </button>
+            </div>
+</div>
+</div>
+</div>`
+
+    contact.appendChild(div)
     addInputs();
 
     nameInput.value = "";
@@ -109,6 +139,9 @@ function checkUser() {
     send.setAttribute("data-target", "#exampleModal");
   }
 }
+document.querySelector(".joinUsBtn").addEventListener('click',()=>{
+  div.innerHTML=''
+})
 
 function addInputs() {
   let obj = {
